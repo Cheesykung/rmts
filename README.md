@@ -7,22 +7,30 @@ project webpro and database 2021
 please install'
 
 <- everyone ->
+
 Node.js
 VS Code (or other editor)
 
 <- backend ->
+
 MySQL Workbench 8.0 CE
 Postman
 
 <- frontend ->
+
 Vue Devtool (Browser Extension) ^^ optional but strongly reccommended ^^
 Google Chrome or Microsoft edge (you need to select one to be the main platform)
 
 <- Knowledge require for everyone ->
+
 📢 Basic or Advance JavaScript (ES6) 📢
+
 Basic backend via Express.js
+
 📢 Vue.js 📢
+
 CSS via bulma, bootstrap (3, 4) or Advance CSS
+
 Basic HTML
 
 --------------------------------------------------------------------------
