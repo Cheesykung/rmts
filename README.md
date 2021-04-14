@@ -4,7 +4,7 @@ project webpro and database 2021
 --------------------------------------------------------------------------
 🥇 important 🥇
 
-please install'
+please install
 
 <- everyone ->
 
