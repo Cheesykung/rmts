@@ -23,11 +23,11 @@ please install'
 
 <- Knowledge require for everyone ->
 
-- 📢 Basic or Advance JavaScript (ES6) 📢
+- Basic or Advance JavaScript (ES6)
 
 - Basic backend via Express.js
 
-- 📢 Vue.js 📢
+- Vue.js
 
 - CSS via bulma, bootstrap (3, 4) or Advance CSS
 
