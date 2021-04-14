@@ -1,3 +1,8 @@
+--<< Before use this code! >>
+-- use need to download MySQL Workbench 8.0 CE
+-- install then create database with the same name `rmts`
+-- if you don't know how then use the forrowing guildline (https://github.com/it-web-pro/WEEK01-setup/blob/main/windows10/README.md)
+
 CREATE TABLE `rmts`.`stations` (
   `station_id` int(11) AUTO_INCREMENT,
   `station_line` int(11) default NULL,
