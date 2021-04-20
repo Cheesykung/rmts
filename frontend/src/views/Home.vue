@@ -41,7 +41,7 @@
         <div class="has-text-centered">
           <img src="../assets/RMTSlogo.png" width="690">
         </div>
-        <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px; bottom: 0;">
+        <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px;">
           <div class="container pt-3 pb-3">
             <div class="columns m-0 p-6 has-text-centered">
               <div class="column is-3 is-offset-3">
@@ -100,4 +100,5 @@ export default {
   },
 }
 </script>
+
 
