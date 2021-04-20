@@ -39,7 +39,7 @@
           </div>
         </nav>
         <div class="has-text-centered">
-          <img src="../assets/RMTSlogo.png" width="690">
+          <img src="../assets/RMTSlogo.png" width="632">
         </div>
         <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px;">
           <div class="container pt-3 pb-3">
@@ -69,9 +69,13 @@
 
 .button-custom {
   background: #ECF0F3;
-  box-shadow: -18px -18px 30px #FFFFFF, 18px 18px 30px #D1D9E6;
+  box-shadow: -10px -10px 22px #FFFFFF, 10px 10px 22px #D1D9E6;
   border-radius: 77px;
   font-family: 'Kanit', sans-serif;
+  flex-direction: column;
+  white-space: unset;
+
+  height: 100px;
 }
 
 .has-background-custom {
