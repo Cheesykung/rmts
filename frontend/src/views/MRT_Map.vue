@@ -13,7 +13,7 @@
     </div>
     <div class="hero-foot" style="margin-top: 8%">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน BTS</p>
+        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน MRT</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3 has-text-centered">
@@ -22,19 +22,15 @@
               <button class="button button-custom is-fullwidth" style="background: #333333;" @click="route = 1">รวม</button>
             </div>
             <div class="column">
-              <button class="button button-custom is-fullwidth" style="background: #76AD2D;" @click="route = 2">สายสุขุมวิท</button>
+              <button class="button button-custom is-fullwidth" style="background: #1D398D;" @click="route = 2">สายเฉลิมรัชมงคล</button>
             </div>
             <div class="column">
-              <button class="button button-custom is-fullwidth" style="background: #147976;">สายสีลม</button>
-            </div>
-            <div class="column">
-              <button class="button button-custom is-fullwidth" style="background: #A38607;">สายสีทอง</button>
+              <button class="button button-custom is-fullwidth" style="background: #5C2C90;" @click="route = 3">สายฉลองรัชธรรม</button>
             </div>
           </div>
           <img v-if="route == 1" src="../assets/ARL.png">
           <img v-if="route == 2" src="../assets/background.svg">
-          <img v-if="route == 3" src="">
-          <img v-if="route == 4" src="">
+          <img v-if="route == 3" src="../assets/background.svg">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
@@ -46,7 +42,7 @@
 
 <style>
 #hero {
-  background: url('../assets/BTSbackground.svg') no-repeat center center fixed;
+  background: url('../assets/MRTbackground.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

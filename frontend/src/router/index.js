@@ -24,6 +24,11 @@ const routes = [
     name: 'bts_map',
     component: () => import('../views/BTS_Map.vue')
   },
+  {
+    path: '/mrt_map',
+    name: 'mrt_map',
+    component: () => import('../views/MRT_Map.vue')
+  },
 ]
 
 const router = new VueRouter({

@@ -11,7 +11,7 @@
         </div>
       </nav>
     </div>
-    <div class="hero-foot">
+    <div class="hero-foot"  style="margin-top: 8%">
       <div class="container">
         <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน ARL</p>
       </div>
