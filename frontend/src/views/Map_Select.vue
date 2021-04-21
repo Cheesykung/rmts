@@ -13,7 +13,7 @@
     </div>
     <div class="hero-foot">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold; max-width: auto">แผนผังทางเดินรถไฟ</p>
+        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดินรถไฟ</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3">
@@ -41,7 +41,7 @@
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline">
                 <span><img src="../assets/train4.svg" width="300" height="28"></span>
-                รถไฟไทย (SRT)
+                <span>รถไฟไทย (SRT)</span>
               </div>
             </div>
           </div>
