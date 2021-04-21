@@ -49,12 +49,6 @@
 .has-background-custom {
   background: #ECF0F3;
 }
-
-.is-multiline {
-  min-height: 2.25em;
-  white-space: unset;
-  flex-direction: column;
-}
 </style>
 
 <script>
