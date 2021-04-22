@@ -58,3 +58,12 @@ create table `rmts`.`srt_train_srt`(
     foreign key (`station_id`) references srt(`station_id`),
     foreign key (`train_id`) references train_srt(`train_id`)
 );
+
+create table `rmts`.`before_next` (
+	`before` int(11),
+    `station_id` int(11),
+    `next` int(11),
+    primary key (`station_id`),
+    foreign key (`before`) references stations(`station_id`),
+	foreign key (`next`) references stations(`station_id`)
+)
