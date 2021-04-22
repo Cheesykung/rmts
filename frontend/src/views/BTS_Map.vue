@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28">
+            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -18,17 +18,17 @@
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3 has-text-centered">
           <div class="columns p-5"> 
-            <div class="column">
+            <div class="column is-3">
               <button class="button button-custom is-fullwidth" style="background: #333333;" @click="route = 1">รวม</button>
             </div>
-            <div class="column">
+            <div class="column is-3">
               <button class="button button-custom is-fullwidth" style="background: #76AD2D;" @click="route = 2">สายสุขุมวิท</button>
             </div>
-            <div class="column">
-              <button class="button button-custom is-fullwidth" style="background: #147976;">สายสีลม</button>
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #147976;" @click="route = 3">สายสีลม</button>
             </div>
-            <div class="column">
-              <button class="button button-custom is-fullwidth" style="background: #A38607;">สายสีทอง</button>
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #A38607;" @click="route = 4">สายสีทอง</button>
             </div>
           </div>
           <img v-if="route == 1" src="../assets/ARL.png">
@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #hero {
   background: url('../assets/BTSbackground.svg') no-repeat center center fixed;
   background-size: cover;
@@ -64,8 +64,8 @@
 }
 
 .button-custom:hover, .button-custom:focus {
-  transition: 0.1s;
-  font-size: 27px;
+  transition: 0.3s;
+  font-size: 26px;
   color: white;
 }
 
@@ -81,5 +81,8 @@ export default {
       route: 1
     };
   },
+  created() {
+    document.title = this.$route.meta.title;
+  }
 }
 </script>

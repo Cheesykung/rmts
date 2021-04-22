@@ -27,7 +27,7 @@
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <img src="./image/RMTS.png" width="112" height="28">
+              <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
             </a>
           </div>
           <div class="navbar-end">
@@ -45,10 +45,10 @@
           <div class="container pt-3 pb-3">
             <div class="columns m-0 p-6 has-text-centered">
               <div class="column is-3 is-offset-3">
-                <button class="button button-custom is-large is-fullwidth">ค้นหาเส้นทาง</button>
+                <div class="button button-custom is-large is-fullwidth">ค้นหาเส้นทาง</div>
               </div>
               <div class="column is-3">
-                <button class="button button-custom is-large is-fullwidth">ดูแผนผังทางเดินรถ</button>
+                <div class="button button-custom is-large is-fullwidth" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #hero {
   background: url('../assets/background.svg') no-repeat center center fixed;
   background-size: cover;
@@ -102,6 +102,9 @@ export default {
       loginPage: false
     };
   },
+  created() {
+    document.title = this.$route.meta.title;
+  }
 }
 </script>
 

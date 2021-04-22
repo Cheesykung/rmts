@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28">
+            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -19,13 +19,13 @@
         <div class="container pt-3 pb-3">
           <div class="columns m-0 has-text-centered">
             <div class="column is-3 is-offset-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline">
+              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/arl_map');">
                 <span><img src="../assets/train1.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าเชื่อมท่าอากาศยาน (ARL)</span>
               </div>
             </div>
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline">
+              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/bts_map');">
                 <span><img src="../assets/train2.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าบีทีเอส (BTS)</span>
               </div>
@@ -33,13 +33,13 @@
           </div>
           <div class="columns m-0 has-text-centered">
             <div class="column is-3 is-offset-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline">
+              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/mrt_map');">
                 <span><img src="../assets/train3.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้ามหานคร (MRT)</span>
               </div>
             </div>
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline">
+              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/srt_map');">
                 <span><img src="../assets/train4.svg" width="300" height="28"></span>
                 <span>รถไฟไทย (SRT)</span>
               </div>
@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #hero {
   background: url('../assets/background.svg') no-repeat center center fixed;
   background-size: cover;
@@ -69,7 +69,7 @@
   border-radius: 42px;
   font-family: 'Kanit', sans-serif;
 
-  width: 413px;
+  width: 314px;
   height: 150px;
 }
 
@@ -90,6 +90,9 @@ export default {
     return {
       loginPage: false
     };
+  },
+  created() {
+    document.title = this.$route.meta.title;
   },
 }
 </script>

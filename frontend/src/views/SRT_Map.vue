@@ -13,24 +13,42 @@
     </div>
     <div class="hero-foot" style="margin-top: 8%">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน MRT</p>
+        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน BTS</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3 has-text-centered">
-          <div class="columns p-5"> 
+          <div class="columns pt-5 pr-5 pl-5"> 
             <div class="column is-3">
               <button class="button button-custom is-fullwidth" style="background: #333333;" @click="route = 1">รวม</button>
             </div>
             <div class="column is-3">
-              <button class="button button-custom is-fullwidth" style="background: #1D398D;" @click="route = 2">สายเฉลิมรัชมงคล</button>
+              <button class="button button-custom is-fullwidth" style="background: #3E3EEA;" @click="route = 2">สายเหนือ</button>
             </div>
             <div class="column is-3">
-              <button class="button button-custom is-fullwidth" style="background: #5C2C90;" @click="route = 3">สายฉลองรัชธรรม</button>
+              <button class="button button-custom is-fullwidth" style="background: #299629;" @click="route = 3">สายตะวันออกเฉียงเหนือ</button>
+            </div>
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #FFC700;" @click="route = 4">สายใต้</button>
+            </div>
+          </div>
+          <div class="columns pb-5 pr-5 pl-5"> 
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #800080;" @click="route = 5">สายตะวันออก</button>
+            </div>
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #E0159B;" @click="route = 6">สายวงเวียนใหญ่ - มหาชัย</button>
+            </div>
+            <div class="column is-3">
+              <button class="button button-custom is-fullwidth" style="background: #2BABFF;" @click="route = 7">สายบ้านแหลม - เขตเมือง</button>
             </div>
           </div>
           <img v-if="route == 1" src="../assets/ARL.png">
           <img v-if="route == 2" src="../assets/background.svg">
-          <img v-if="route == 3" src="../assets/background.svg">
+          <img v-if="route == 3" src="">
+          <img v-if="route == 4" src="">
+          <img v-if="route == 5" src="../assets/ARL.png">
+          <img v-if="route == 6" src="../assets/background.svg">
+          <img v-if="route == 7" src="">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
@@ -42,7 +60,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/MRTbackground.svg') no-repeat center center fixed;
+  background: url('../assets/SRTbackground.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

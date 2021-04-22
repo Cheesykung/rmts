@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28">
+            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #hero {
   background: url('../assets/ARLbackground.svg') no-repeat center center fixed;
   background-size: cover;
@@ -58,5 +58,8 @@ export default {
       loginPage: false
     };
   },
+  created() {
+    document.title = this.$route.meta.title;
+  }
 }
 </script>
