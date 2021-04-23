@@ -1,106 +1,96 @@
 INSERT INTO `rmts`.`before_next` (`before`, `station_id`, `next`)
 VALUES 
 -- SRT โพรงมะเดื่อ -> กรุงเทพ
-(null, 22, 21),
-(22, 21, 20),
-(21, 20, 19),
-(20, 19, 18),
-(19, 18, 17),
-(18, 17, 16),
-(17, 16, 15),
-(16, 15, 14),
-(15, 14, 13),
-(14, 13, 12),
-(13, 12, 11),
-(12, 11, 10),
-(11, 10, 9),
-(10, 9, 25), -- ตลิ่งชัน SRT -> SRT บางระมาด
-(10, 9, 8),
-(9, 8, 7),
-(8, 7, 130), -- บางซ่อน SRT -> MRT บางซ่อน
-(8, 7, 6),
-(7, 6, 101), -- SRT บางซื่อ -> บางซื่อ MRT
-(40, 6, 5), -- นิคมรถไฟกม.11 -> บางซื่อ SRT
-(7, 6, 5),
-(6, 5, 4),
-(5, 4, 3),
-(4, 3, 2),
-(3, 2, 1),
-(2, 1, 118), -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
-(2, 1, null),
+(null, null, null, 22, 21, null, null),
+(null, null, 22, 21, 20, null, null),
+(null, null, 21, 20, 19, null, null),
+(null, null, 20, 19, 18, null, null),
+(null, null, 19, 18, 17, null, null),
+(null, null, 18, 17, 16, null, null),
+(null, null, 17, 16, 15, null, null),
+(null, null, 16, 15, 14, null, null),
+(null, null, 15, 14, 13, null, null),
+(null, null, 14, 13, 12, null, null),
+(null, null, 13, 12, 11, null, null),
+(null, null, 12, 11, 10, null, null),
+(null, null, 11, 10, 9, null, null),
+(null, null, 10, 9, 25, 8, null), -- ตลิ่งชัน SRT -> SRT บางระมาด
+(null, null, 9, 8, 7, null, null),
+(null, null, 8, 7, 130, 6, null), -- บางซ่อน SRT -> MRT บางซ่อน
+(null, 40, 7, 6, 101, 5, null), -- นิคมรถไฟกม.11 -> SRT บางซื่อ -> บางซื่อ MRT
+(null, null, 6, 5, 4, null, null),
+(null, null, 5, 4, 3, null, null),
+(null, null, 4, 3, 2, null, null),
+(null, null, 3, 2, 1, null, null),
+(null, null, 2, 1, 118, null, null), -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
 
 -- SRT บางระมาด -> กรุงธนบุรี
-(9, 25, 24), -- ตลิ่งชัน SRT -> SRT บางระมาด
-(25, 24, 23),
-(24, 23, null),
+(null, null, 9, 25, 24, null, null), -- ตลิ่งชัน SRT -> SRT บางระมาด
+(null, null, 25, 24, 23, null, null),
+(null, null, 24, 23, null, null, null),
 
 -- SRT นวลนคร -> นิคมรถไฟกม.11
-(null, 53, 52),
-(53, 52, 51),
-(52, 51, 50),
-(51, 50, 49),
-(50, 49, 48),
-(49, 48, 47),
-(48, 47, 46),
-(47, 46, 45),
-(46, 45, 44),
-(45, 44, 43),
-(44, 43, 42),
-(43, 42, 41),
-(42, 41, 40),
-(41, 40, 6), -- นิคมรถไฟกม.11 -> บางสื่อ SRT
+(null, null, null, 53, 52, null, null),
+(null, null, 53, 52, 51, null, null),
+(null, null, 52, 51, 50, null, null),
+(null, null, 51, 50, 49, null, null),
+(null, null, 50, 49, 48, null, null),
+(null, null, 49, 48, 47, null, null),
+(null, null, 48, 47, 46, null, null),
+(null, null, 47, 46, 45, null, null),
+(null, null, 46, 45, 44, null, null),
+(null, null, 45, 44, 43, null, null),
+(null, null, 44, 43, 42, null, null),
+(null, null, 43, 42, 41, null, null),
+(null, null, 42, 41, 40, null, null),
+(null, null, 41, 40, 6, null, null), -- นิคมรถไฟกม.11 -> บางสื่อ SRT
 
 -- SRT คลองหลวงเพ่ง -> กรุงเทพ
-(null, 39, 38),
-(39, 38, 37),
-(38, 37, 36),
-(89, 36, 35), -- ลาดกระบัง ARL -> ลาดกระบัง SRT
-(37, 36, 35),
-(36, 35, 34),
-(35, 34, 33),
-(87, 33, 32), -- หัวหมาก ARL -> หัวหมาก SRT
-(34, 33, 32),
-(33, 32, 31),
-(32, 31, 30),
-(85, 30, 29), -- มักกะสัน ARL => อโศก SRT
-(31, 30, 111), -- อโสก SRT => เพชรบุรี MRT 0 สายน้ำเงิน
-(31, 30, 29),
-(30, 29, 28),
-(29, 28, 27),
-(83, 27, 26), -- ทางแยก ARL พยาไท -> SRT พยาไท
-(147, 27, 26), -- ทางแยก BTS พยาไท -> SRT พยาไท
-(28, 27, 26),
-(27, 26, 1);
+(null, null, null, 39, 38, null, null),
+(null, null, 39, 38, 37, null, null),
+(null, null, 38, 37, 36, null, null),
+(null, 37, 89, 36, 35, null, null), -- ลาดกระบัง ARL -> ลาดกระบัง SRT
+(null, null, 36, 35, 34, null, null),
+(null, null, 35, 34, 33, null, null),
+(null, 34, 87, 33, 32, null, null), -- หัวหมาก ARL -> หัวหมาก SRT
+(null, null, 33, 32, 31, null, null),
+(null, null, 32, 31, 30, null, null),
+(null, 31, 85, 30, 29, 111, null), -- มักกะสัน ARL => อโศก SRT => เพชรบุรี MRT 0 สายน้ำเงิน
+(null, null, 30, 29, 28, null, null),
+(null, null, 29, 28, 27, null, null),
+(28, 147, 83, 27, 26, null, null), --ทางแยก BTS พยาไท, ทางแยก ARL พยาไท -> SRT พยาไท
+(null, null, 28, 27, 26, null, null),
+(null, null, 27, 26, 1, null, null);
 
 --SRT มหาชัย 71 -> วงเวียนใหญ่ 54
-(null, 71, 70),
-(71, 70, 69),
-(70, 69, 68),
-(69, 68, 67),
-(68, 67, 66),
-(67, 66, 65),
-(66, 65, 64),
-(65, 64, 63),
-(64, 63, 62),
-(63, 62, 61),
-(62, 61, 60),
-(61, 60, 59),
-(60, 59, 58),
-(59, 58, 57),
-(58, 57, 56),
-(57, 56, 55),
-(56, 55, 54),
-(55, 54, null),
+(null, null, null, 71, 70, null, null),
+(null, null, 71, 70, 69, null, null),
+(null, null, 70, 69, 68, null, null),
+(null, null, 69, 68, 67, null, null),
+(null, null, 68, 67, 66, null, null),
+(null, null, 67, 66, 65, null, null),
+(null, null, 66, 65, 64, null, null),
+(null, null, 65, 64, 63, null, null),
+(null, null, 64, 63, 62, null, null),
+(null, null, 63, 62, 61, null, null),
+(null, null, 62, 61, 60, null, null),
+(null, null, 61, 60, 59, null, null),
+(null, null, 60, 59, 58, null, null),
+(null, null, 59, 58, 57, null, null),
+(null, null, 58, 57, 56, null, null),
+(null, null, 57, 56, 55, null, null),
+(null, null, 56, 55, 54, null, null),
+(null, null, 55, 54, null, null, null),
 
 --SRT เขตเมือง 82 -> วงเวียนใหญ่ 72
-(null, 82, 81),
-(82, 81, 80),
-(81, 80, 79),
-(80, 79, 78),
-(79, 78, 77),
-(78, 77, 76),
-(77, 76, 75),
-(76, 75, 74),
-(75, 74, 73),
-(74, 73, 72),
-(73, 72, null),
+(null, null, null, 82, 81, null, null),
+(null, null, 82, 81, 80, null, null),
+(null, null, 81, 80, 79, null, null),
+(null, null, 80, 79, 78, null, null),
+(null, null, 79, 78, 77, null, null),
+(null, null, 78, 77, 76, null, null),
+(null, null, 77, 76, 75, null, null),
+(null, null, 76, 75, 74, null, null),
+(null, null, 75, 74, 73, null, null),
+(null, null, 74, 73, 72, null, null),
+(null, null, 73, 72, null, null, null),
