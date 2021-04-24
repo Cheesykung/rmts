@@ -13,7 +13,7 @@
           </div >
           <div class="mt-3">
             <label class="fontunversal" for="email">Email</label>
-            <input type="text" class="input" v-model="email">
+            <input type="text" class="input " v-model="email">
           </div>
           <div class="mt-3">
             <label class="fontunversal" for="password">Password</label>
@@ -100,7 +100,7 @@
 font-family: 'Montserrat', sans-serif;
 font-style: italic;
 background: linear-gradient(85.2deg, #505EE0 4.87%, #48C5B5 95.68%);
--webkit-background-clip: text;
+background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 .fontunversal{
@@ -112,6 +112,12 @@ font-size: 24;
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
 
+}
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 3px solid #505EE0;
 }
 </style>
 

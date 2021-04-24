@@ -121,8 +121,15 @@
 }
 
 .form-font {
-  font-size: 21px;
+  font-size: 24px;
   padding: 1%;
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+}
+.font-dropdown{
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+
 }
 
 @media screen and (max-width: 768px) {
