@@ -3,18 +3,14 @@
 -- install then create database with the same name `rmts`
 -- if you don't know how then use the forrowing guildline (https://github.com/it-web-pro/WEEK01-setup/blob/main/windows10/README.md)
 
--- CREATE TABLE `rmts`.`stations` (
---   `station_id` int(11) AUTO_INCREMENT,
---   `station_line` int(11) default NULL,
---   `station_name` varchar(300) NOT NULL,
---   `transit` boolean NOT NULL DEFAULT 0,
---   `before`  int(11) DEFAULT null,
---   `next` int(11) DEFAULT null,
---   `type` enum('ARL', 'SRT', 'BTS', 'MRT') NOT NULL,
---   PRIMARY KEY (`station_id`),
---   foreign key (`before`) references stations(`station_id`),
---   foreign key (`next`) references stations(`station_id`)
--- );
+CREATE TABLE `rmts`.`stations` (
+  `station_id` int(11) AUTO_INCREMENT,
+  `station_line` int(11) default NULL,
+  `station_name` varchar(300) NOT NULL,
+  `transit` boolean NOT NULL DEFAULT 0,
+  `type` enum('ARL', 'SRT', 'BTS', 'MRT') NOT NULL,
+  PRIMARY KEY (`station_id`)
+);
 
 -- create table `rmts`.`bts` (
 -- 	`station_id` int(11) not null,
