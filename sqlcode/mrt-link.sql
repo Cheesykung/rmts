@@ -24,14 +24,14 @@ VALUES
 (null, null, 107, 108, 109, null, null),
 (null, null, 108, 109, 110, null, null),
 (null, null, 109, 110, 111, null, null),
-(110, 30, 85, 111, 112, null, null), -- อโสก SRT, มักกะสัน ARL => เพชรบุรี MRT 0 สายน้ำเงิน
-(null, 111, 173, 112, 113, null, null),  -- ทางแยก อโสก BTS -> สุขุมวิท MRT สาย 1
+(110, 30, 85,     111, 112, null, null), -- อโสก SRT, มักกะสัน ARL => เพชรบุรี MRT 0 สายน้ำเงิน
+(null, 111,  173, 112, 113, null, null),  -- ทางแยก อโสก BTS -> สุขุมวิท MRT สาย 1
 (null, null, 112, 113, 114, null, null),
 (null, null, 113, 114, 115, null, null),
 (null, null, 114, 115, 116, null, null),
-(null, 115, 196, 116, 117, null, null), -- ทางแยก BTS ศาลาแดง ->  MRT สีลม
+(null, 115,  196, 116, 117, null, null), -- ทางแยก BTS ศาลาแดง ->  MRT สีลม
 (null, null, 116, 117, 118, null, null),
-(null, 117, 1, 118, 119, null, null), -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
+(null, 117,    1, 118, 119, null, null), -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
 (null, null, 118, 119, 120, null, null),
 (null, null, 119, 120, 121, null, null),
 (null, null, 120, 121, 122, null, null),

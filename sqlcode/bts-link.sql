@@ -1,7 +1,7 @@
 INSERT INTO `rmts`.`before_next` (`before3`, `before2`, `before1`, `station_id`, `next1`, `next2`, `next3`)
 VALUES 
 -- BTS สายสีเขียวอ่อน คูคต 169 -> เคหะ 192
-(null, null, 170, 169, 168, null, null),
+(null, null, null, 169, 168, null, null),
 (null, null, 169, 168, 167, null, null),
 (null, null, 168, 167, 166, null, null),
 (null, null, 167, 166, 165, null, null),

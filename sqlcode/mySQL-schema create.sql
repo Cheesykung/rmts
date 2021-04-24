@@ -13,29 +13,33 @@ CREATE TABLE `rmts`.`stations` (
 );
 
 -- create table `rmts`.`bts` (
--- 	`station_id` int(11) not null,
+-- 	`station_id` int(11),
 -- 	`station_zone` int(11) default 0,
---     `station_codename` varchar(30),
---     foreign key (`station_id`) references stations(`station_id`)
+--  `station_codename` varchar(30),
+--   primary key (`station_id`),
+--   foreign key (`station_id`) references stations(`station_id`)
 -- );
 
 -- create table `rmts`.`arl` (
--- 	`station_id` int(11) not null,
+-- 	`station_id` int(11),
 --     `station_codename` varchar(30),
+--   primary key (`station_id`),
 --     foreign key (`station_id`) references stations(`station_id`)
 -- );
 
 -- create table `rmts`.`mrt`(
--- 	`station_id` int(11) not null,
+-- 	`station_id` int(11),
 --     `station_codename` varchar(30),
+--    primary key (`station_id`),
 --     foreign key (`station_id`) references stations(`station_id`)
 -- );
 
 -- create table `rmts`.`srt`(
--- 	`station_id` int(11) not null,
+-- 	`station_id` int(11),
 --     `station_zone` int(11) default 0,
 --     `used_time` int(11) default 0,
 --     `train_id` int(11) not null,
+--    primary key (`station_id`),
 --     foreign key (`station_id`) references stations(`station_id`)
 -- );
 
@@ -51,6 +55,8 @@ CREATE TABLE `rmts`.`stations` (
 -- create table `rmts`.`srt_train_srt`(
 -- 	`station_id` int(11) not null,
 --     `train_id` int(11) not null,
+--      primary key (`station_id`),
+--      primary key (`train_id`),
 --     foreign key (`station_id`) references srt(`station_id`),
 --     foreign key (`train_id`) references train_srt(`train_id`)
 -- );
