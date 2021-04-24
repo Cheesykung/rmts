@@ -2,19 +2,21 @@
   <div id="hero" class="hero is-fullheight">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
     <div class="columns is-gapless">
       <div class="column is-3 login-page has-background-white" v-if="loginPage == true" name="move">
         <div id="login" class="container p-5">
           <div class="has-text-centered">
-            <p style="font-weight: 900; font-size: 45px;">ONLY ADMIN</p>
+            <p class="fontadmin" style="font-weight: 900;font-size: 45px;">ONLY ADMIN</p>
           </div >
           <div class="mt-3">
-            <label style="font-weight: bold; font-size: 24px; line-height: 29px;" for="email">Email</label>
+            <label class="fontunversal" for="email">Email</label>
             <input type="text" class="input" v-model="email">
           </div>
           <div class="mt-3">
-            <label style="font-weight: bold; font-size: 24px; line-height: 29px;" for="password">Password</label>
+            <label class="fontunversal" for="password">Password</label>
             <input type="text" class="input" v-model="password">
           </div>
           <div class="has-text-centered mt-6">
@@ -45,10 +47,11 @@
           <div class="container pt-3 pb-3">
             <div class="columns m-0 p-6 has-text-centered">
               <div class="column is-3 is-offset-3">
-                <div class="button button-custom is-large is-fullwidth" @click="$router.push('/route_search');">ค้นหาเส้นทาง</div>
+                <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/route_search');">ค้นหาเส้นทาง</div>
               </div>
               <div class="column is-3">
-                <div class="button button-custom is-large is-fullwidth" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
+                <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
+      
               </div>
             </div>
           </div>
@@ -92,6 +95,23 @@
   border-radius: 160px;
   color: white;
   font-family: 'Kanit', sans-serif;
+}
+.fontadmin{
+font-family: 'Montserrat', sans-serif;
+font-style: italic;
+background: linear-gradient(85.2deg, #505EE0 4.87%, #48C5B5 95.68%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.fontunversal{
+  font-family: 'Montserrat', sans-serif;
+font-style: bold;
+font-size: 24;
+}
+.font-button{
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+
 }
 </style>
 

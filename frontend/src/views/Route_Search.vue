@@ -20,23 +20,43 @@
         <div class="container pt-3 p-5">
           <div class="columns is-centered">
             <div class="column is-4">
-              <label>ต้นทาง</label>
-              <input class="input" type="text">
+              <div class="field">
+                <div class="is-large">
+                  <label class="label universal">ต้นทาง</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input class="input is-large" type="text" placeholder="โปรดระบุ">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="column is-4">
-              <label>ปลายทาง</label>
-              <input class="input" type="text">
+              <div class="field">
+                <div class="is-large">
+                  <label class="label universal">ปลายทาง</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input class="input is-large" type="text" placeholder="โปรดระบุ">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="columns is-centered">
             <div class="column is-4">
-              <label>วันเดินทาง</label>
-              <input class="input" type="date">
+              <label class="label universal">วันเดินทาง</label>
+              <input class="input is-large" type="date">
             </div>
             <div class="column is-4"></div>
           </div>
           <div class="has-text-centered">
-            <div class="button button-custom">ค้นหาเส้นทาง</div>
+            <div class="button button-custom ">ค้นหาเส้นทาง</div>
           </div>
         </div>
       </div>
@@ -67,6 +87,10 @@
   
   width: 342px;
   height: 90px;
+}
+.universal {
+  font-size: 20px;
+  font-family: 'Kanit', sans-serif;
 }
 
 .has-background-custom {
