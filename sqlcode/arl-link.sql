@@ -1,4 +1,4 @@
-INSERT INTO `rmts`.`before_next` (`before`, `station_id`, `next`)
+INSERT INTO `rmts`.`before_next` (`before3`, `before2`, `before1`, `station_id`, `next1`, `next2`, `next3`)
 VALUES 
 -- ARL สุววรณภูมิ -> พยาไท
 (null,null,null, 90, 89, null, null),

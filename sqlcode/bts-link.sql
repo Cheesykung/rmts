@@ -1,4 +1,4 @@
-INSERT INTO `rmts`.`before_next` (`before`, `station_id`, `next`)
+INSERT INTO `rmts`.`before_next` (`before3`, `before2`, `before1`, `station_id`, `next1`, `next2`, `next3`)
 VALUES 
 -- BTS สายสีเขียวอ่อน คูคต 169 -> เคหะ 192
 (null, null, 170, 169, 168, null, null),
@@ -25,10 +25,9 @@ VALUES
 (null, null, 149, 148, 147, null, null),
 (null,   83, 148, 147, 146,   27, null), -- ทางแยก ARL พยาไท ->  BTS พยาไท -> SRT พยาไท
 (null, null, 147, 146, 145, null, null),
-(null, null, 146, 145, 194, null, null),  -- ทางแยก สยาม BTS 0 สายเขียวอ่อน -> สยาม BTS สาย 1 สายเขียว
+(null, null, 146, 145, 194, 170, null),  -- ทางแยก สยาม BTS 0 สายเขียวอ่อน -> สยาม BTS สาย 1 สายเขียว
 
 -- BTS สยาม 145 -> เคหะ ฯ 192
-(null, null, 146, 145, 170, null, null),
 (null, null, 145, 170, 171, null, null),
 (null, null, 170, 171, 172, null, null),
 (null, null, 171, 172, 173, null, null),

@@ -1,4 +1,4 @@
-INSERT INTO `rmts`.`before_next` (`before`, `station_id`, `next`)
+INSERT INTO `rmts`.`before_next` (`before3`, `before2`, `before1`, `station_id`, `next1`, `next2`, `next3`)
 VALUES
 -- MRT สีม่วง จากคลองบางไผ่ 144 -> เตาปูน 129 MRT
 (null, null, null, 144, 143, null, null),
@@ -31,15 +31,14 @@ VALUES
 (null, null, 114, 115, 116, null, null),
 (null, 115, 196, 116, 117, null, null), -- ทางแยก BTS ศาลาแดง ->  MRT สีลม
 (null, null, 116, 117, 118, null, null),
-(null, 117, 1, 118, 119, null, null) -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
-(null, null, 117, 118, 119, null, null),
+(null, 117, 1, 118, 119, null, null), -- ทางแยก STR กรุงเทพ ->  MRT หัวลำโพง
 (null, null, 118, 119, 120, null, null),
 (null, null, 119, 120, 121, null, null),
 (null, null, 120, 121, 122, null, null),
 (null, null, 121, 122, 91, null, null),
 
 -- ท่าพระ แยกไป MRT ลาดพร้าว 105
-(null, null, 122, 91, 92, null, null),
+(null, null, 122, 91, 92, 123, null),
 (null, null, 91, 92, 93, null, null),
 (null, null, 92, 93, 94, null, null),
 (null, null, 93, 94, 95, null, null),
@@ -56,7 +55,6 @@ VALUES
 (null, null, 104, 105, null, null, null),
 
 -- ท่าพระ แยกไป MRT หลักสอง 128
-(null, null, 122, 91, 123, null, null),
 (null, null, 91, 123, 124, null, null),
 (null, 123, 206, 124, 125, null, null), -- ทางแยก บางหว้า BTS เขียว -> บางหว้า MRT น้ำเงิน
 (null, null, 124, 125, 126, null, null),

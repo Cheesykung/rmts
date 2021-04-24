@@ -1,4 +1,4 @@
-INSERT INTO `rmts`.`before_next` (`before`, `station_id`, `next`)
+INSERT INTO `rmts`.`before_next` (`before3`, `before2`, `before1`, `station_id`, `next1`, `next2`, `next3`)
 VALUES 
 -- SRT โพรงมะเดื่อ -> กรุงเทพ
 (null, null, null, 22, 21, null, null),
@@ -58,11 +58,10 @@ VALUES
 (null, 31, 85, 30, 29, 111, null), -- มักกะสัน ARL => อโศก SRT => เพชรบุรี MRT 0 สายน้ำเงิน
 (null, null, 30, 29, 28, null, null),
 (null, null, 29, 28, 27, null, null),
-(28, 147, 83, 27, 26, null, null), --ทางแยก BTS พยาไท, ทางแยก ARL พยาไท -> SRT พยาไท
-(null, null, 28, 27, 26, null, null),
-(null, null, 27, 26, 1, null, null);
+(28, 147, 83, 27, 26, null, null), -- ทางแยก BTS พยาไท, ทางแยก ARL พยาไท -> SRT พยาไท
+(null, null, 27, 26, 1, null, null),
 
---SRT มหาชัย 71 -> วงเวียนใหญ่ 54
+-- SRT มหาชัย 71 -> วงเวียนใหญ่ 54
 (null, null, null, 71, 70, null, null),
 (null, null, 71, 70, 69, null, null),
 (null, null, 70, 69, 68, null, null),
@@ -82,7 +81,7 @@ VALUES
 (null, null, 56, 55, 54, null, null),
 (null, null, 55, 54, null, null, null),
 
---SRT เขตเมือง 82 -> วงเวียนใหญ่ 72
+-- SRT เขตเมือง 82 -> วงเวียนใหญ่ 72
 (null, null, null, 82, 81, null, null),
 (null, null, 82, 81, 80, null, null),
 (null, null, 81, 80, 79, null, null),
@@ -93,4 +92,4 @@ VALUES
 (null, null, 76, 75, 74, null, null),
 (null, null, 75, 74, 73, null, null),
 (null, null, 74, 73, 72, null, null),
-(null, null, 73, 72, null, null, null),
+(null, null, 73, 72, null, null, null);
