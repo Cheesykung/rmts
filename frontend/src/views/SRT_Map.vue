@@ -73,7 +73,6 @@
   font-size: 22px;
   color: white;
 
-  width: 309.28px;
   height: 52.46px;
 }
 
