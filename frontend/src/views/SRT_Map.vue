@@ -12,11 +12,11 @@
       </nav>
     </div>
     <div class="hero-foot" style="margin-top: 8%">
-      <div class="container">
-        <p style="color: white; font-size: 10vh; font-weight: bold;">แผนผังการเดิน BTS</p>
+      <div id="page-name" class="container p-1">
+        <p style="color: white; font-size: 6vw; font-weight: bold;">แผนผังการเดิน BTS</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
-        <div class="container pt-3 pb-3 has-text-centered">
+        <div class="container p-3 has-text-centered">
           <div class="columns is-centered pt-5 pr-5 pl-5"> 
             <div class="column is-3">
               <button class="button button-custom is-fullwidth" style="background: #333333;" @click="route = 1">รวม</button>
@@ -73,7 +73,6 @@
   font-size: 22px;
   color: white;
 
-  width: 309.28px;
   height: 52.46px;
 }
 
@@ -85,6 +84,12 @@
 
 .has-background-custom {
   background: #ECF0F3;
+}
+
+@media screen and (max-width: 768px) {
+  #page-name {
+    text-align: center;
+  }
 }
 </style>
 

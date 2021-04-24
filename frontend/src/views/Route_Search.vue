@@ -13,50 +13,72 @@
       </nav>
     </div>
     <div class="hero-foot">
-      <div class="container">
-        <p style="color: white; font-size: 10vh; font-weight: bold;">ค้นหาเส้นทาง</p>
+      <div id="page-name" class="container p-1">
+        <p style="color: white; font-size: 6vw; font-weight: bold;">ค้นหาเส้นทาง</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 p-5">
-          <div class="columns is-centered">
+          <div class="columns is-centered mb-0">
             <div class="column is-4">
-              <div class="field">
-                <div class="is-large">
-                  <label class="label universal">ต้นทาง</label>
+              <p class="form-font">ต้นทาง</p>
+              <div class="field has-addons">
+                <div class="control">
+                  <div class="select is-medium">
+                    <select name="">
+                      <option value="Argentina">ARL</option>
+                      <option value="Argentina">BTS</option>
+                      <option value="Argentina">MRT</option>
+                      <option value="Argentina">SRT</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="field-body">
-                  <div class="field">
-                    <div class="control">
-                      <input class="input is-large" type="text" placeholder="โปรดระบุ">
-                    </div>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth is-medium">
+                    <select name="">
+                      <option value="Argentina">ARL</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
             <div class="column is-4">
-              <div class="field">
-                <div class="is-large">
-                  <label class="label universal">ปลายทาง</label>
+              <p class="form-font">ปลายทาง</p>
+              <div class="field has-addons">
+                <div class="control">
+                  <div class="select is-medium">
+                    <select name="">
+                      <option value="Argentina">ARL</option>
+                      <option value="Argentina">BTS</option>
+                      <option value="Argentina">MRT</option>
+                      <option value="Argentina">SRT</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="field-body">
-                  <div class="field">
-                    <div class="control">
-                      <input class="input is-large" type="text" placeholder="โปรดระบุ">
-                    </div>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth is-medium">
+                    <select name="">
+                      <option value="Argentina">ARL</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="columns is-centered">
+          <div class="columns is-centered mt-0">
             <div class="column is-4">
-              <label class="label universal">วันเดินทาง</label>
-              <input class="input is-large" type="date">
+              <p class="form-font">วันเดินทาง</p>
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <div class="is-fullwidth">
+                    <input class="input is-medium" type="date">
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="column is-4"></div>
           </div>
-          <div class="has-text-centered">
-            <div class="button button-custom ">ค้นหาเส้นทาง</div>
+          <div class="has-text-centered p-5">
+            <div class="button button-custom">ค้นหาเส้นทาง</div>
           </div>
         </div>
       </div>
@@ -84,8 +106,9 @@
   padding: 30px;
   font-size: 25px;
   font-family: 'Kanit', sans-serif;
+  font-weight: 500;
   
-  width: 342px;
+  width: 330px;
   height: 90px;
 }
 .universal {
@@ -95,6 +118,17 @@
 
 .has-background-custom {
   background: #ECF0F3;
+}
+
+.form-font {
+  font-size: 21px;
+  padding: 1%;
+}
+
+@media screen and (max-width: 768px) {
+  #page-name {
+    text-align: center;
+  }
 }
 </style>
 

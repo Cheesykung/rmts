@@ -12,8 +12,8 @@
       </nav>
     </div>
     <div class="hero-foot">
-      <div class="container">
-        <p style="color: white; font-size: 10vh; font-weight: bold;">แผนผังการเดินรถไฟ</p>
+      <div id="page-name" class="container p-1">
+        <p style="color: white; font-size: 6vw; font-weight: bold;">แผนผังการเดินรถไฟ</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3">
@@ -80,6 +80,12 @@
   min-height: 2.25em;
   white-space: unset;
   flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  #page-name {
+    text-align: center;
+  }
 }
 </style>
 
