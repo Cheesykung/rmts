@@ -111,6 +111,10 @@
   width: 330px;
   height: 90px;
 }
+.universal {
+  font-size: 20px;
+  font-family: 'Kanit', sans-serif;
+}
 
 .has-background-custom {
   background: #ECF0F3;
