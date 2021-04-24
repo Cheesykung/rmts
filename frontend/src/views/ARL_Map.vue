@@ -13,7 +13,7 @@
     </div>
     <div class="hero-foot"  style="margin-top: 8%">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน ARL</p>
+        <p style="color: white; font-size: 10vh; font-weight: bold;">แผนผังการเดิน ARL</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3 has-text-centered" style="height: 500px">

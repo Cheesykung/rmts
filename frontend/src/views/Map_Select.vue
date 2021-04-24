@@ -13,12 +13,12 @@
     </div>
     <div class="hero-foot">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดินรถไฟ</p>
+        <p style="color: white; font-size: 10vh; font-weight: bold;">แผนผังการเดินรถไฟ</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3">
-          <div class="columns m-0 has-text-centered">
-            <div class="column is-3 is-offset-3">
+          <div class="columns m-0 is-centered">
+            <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/arl_map');">
                 <span><img src="../assets/train1.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าเชื่อมท่าอากาศยาน (ARL)</span>
@@ -31,8 +31,8 @@
               </div>
             </div>
           </div>
-          <div class="columns m-0 has-text-centered">
-            <div class="column is-3 is-offset-3">
+          <div class="columns m-0 is-centered">
+            <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/mrt_map');">
                 <span><img src="../assets/train3.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้ามหานคร (MRT)</span>
@@ -69,7 +69,6 @@
   border-radius: 42px;
   font-family: 'Kanit', sans-serif;
 
-  width: 314px;
   height: 150px;
 }
 

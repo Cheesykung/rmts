@@ -13,11 +13,11 @@
     </div>
     <div class="hero-foot" style="margin-top: 8%">
       <div class="container">
-        <p style="color: white; font-size: 60px; font-weight: bold;">แผนผังการเดิน BTS</p>
+        <p style="color: white; font-size: 10vh; font-weight: bold;">แผนผังการเดิน BTS</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3 has-text-centered">
-          <div class="columns p-5"> 
+          <div class="columns is-centered p-5"> 
             <div class="column is-3">
               <button class="button button-custom is-fullwidth" style="background: #333333;" @click="route = 1">รวม</button>
             </div>
@@ -56,16 +56,15 @@
 .button-custom {
   border-radius: 42px;
   font-family: 'Kanit', sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   color: white;
 
-  width: 309.28px;
   height: 52.46px;
 }
 
 .button-custom:hover, .button-custom:focus {
   transition: 0.3s;
-  font-size: 26px;
+  font-size: 23px;
   color: white;
 }
 

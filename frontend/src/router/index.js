@@ -40,6 +40,12 @@ const routes = [
     component: () => import('../views/SRT_Map.vue'),
     meta: {title: 'SRT - Railway Mass Transit System'}
   },
+  {
+    path: '/route_search',
+    name: 'route_search',
+    component: () => import('../views/Route_Search.vue'),
+    meta: {title: 'Search - Railway Mass Transit System'}
+  }
 ]
 
 const router = new VueRouter({

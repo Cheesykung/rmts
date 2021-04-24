@@ -11,11 +11,11 @@
           </div >
           <div class="mt-3">
             <label style="font-weight: bold; font-size: 24px; line-height: 29px;" for="email">Email</label>
-            <input type="text" class="input">
+            <input type="text" class="input" v-model="email">
           </div>
           <div class="mt-3">
             <label style="font-weight: bold; font-size: 24px; line-height: 29px;" for="password">Password</label>
-            <input type="text" class="input">
+            <input type="text" class="input" v-model="password">
           </div>
           <div class="has-text-centered mt-6">
             <button id="login-button" class="button is-large is-fullwidth">LOG IN</button>
@@ -45,7 +45,7 @@
           <div class="container pt-3 pb-3">
             <div class="columns m-0 p-6 has-text-centered">
               <div class="column is-3 is-offset-3">
-                <div class="button button-custom is-large is-fullwidth">ค้นหาเส้นทาง</div>
+                <div class="button button-custom is-large is-fullwidth" @click="$router.push('/route_search');">ค้นหาเส้นทาง</div>
               </div>
               <div class="column is-3">
                 <div class="button button-custom is-large is-fullwidth" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
@@ -99,7 +99,9 @@
 export default {
   data() {
     return {
-      loginPage: false
+      loginPage: false,
+      email: "",
+      password: ""
     };
   },
   created() {
