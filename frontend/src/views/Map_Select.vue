@@ -19,13 +19,13 @@
         <div class="container pt-3 pb-3">
           <div class="columns m-0 is-centered">
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/arl_map');">
+              <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/arl_map');">
                 <span><img src="../assets/train1.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าเชื่อมท่าอากาศยาน (ARL)</span>
               </div>
             </div>
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/bts_map');">
+              <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/bts_map');">
                 <span><img src="../assets/train2.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าบีทีเอส (BTS)</span>
               </div>
@@ -33,13 +33,13 @@
           </div>
           <div class="columns m-0 is-centered">
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/mrt_map');">
+              <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/mrt_map');">
                 <span><img src="../assets/train3.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้ามหานคร (MRT)</span>
               </div>
             </div>
             <div class="column is-3">
-              <div class="button button-custom is-medium is-fullwidth is-multiline" @click="$router.push('/srt_map');">
+              <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/srt_map');">
                 <span><img src="../assets/train4.svg" width="300" height="28"></span>
                 <span>รถไฟไทย (SRT)</span>
               </div>
@@ -70,6 +70,11 @@
   font-family: 'Kanit', sans-serif;
 
   height: 150px;
+}
+.font-button{
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+
 }
 
 .has-background-custom {
