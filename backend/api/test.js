@@ -1,6 +1,7 @@
-const path = [[null, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, null]]
+const path = [[null, null, null, 1, 2, 6, null], [null, null, 1, 2, 3, null, null], [null, null, 1, 6, 4, null, null], 
+[null, null, 2, 3, 5, null, null], [null, null, 6, 4, 5, null, null], [null, 3, 4, 5, null, null, null]]
 const end = 1
-let start = 4
+let start = 5
 let prev = 0
 let result = []
 let arr = []
@@ -23,12 +24,14 @@ function saveArray(array) {
 while (true) {
     let now = []
     path.forEach(element => {
-        if (start == element[1]) {
-            now.push(element[0])
-            now.push(element[1])
+        if (start == element[3]) {
             now.push(element[2])
+            now.push(element[3])
+            now.push(element[4])
         }
     })
+
+    console.log(now);
 
     if (now.length <= 0) {
         console.log("404");
