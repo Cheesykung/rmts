@@ -1,62 +1,74 @@
-const path = [[null, null, null, 1, 2, 6, null], [null, null, 1, 2, 3, null, null], [null, null, 1, 6, 4, null, null], 
-[null, null, 2, 3, 5, null, null], [null, null, 6, 4, 5, null, null], [null, 3, 4, 5, null, null, null]]
-const end = 1
-let start = 5
-let prev = 0
-let result = []
-let arr = []
+const path = [[null,null,null,1,2,3,null], [null,null,1,2,3,4,null], [null,2,1,3,4,null,null], [null,2,3,4,null,null,null]]
 
-function createArray(value, code) {
-    if (code == 0) {
-        arr.push(value)
-    } 
-    if (code == 1) {
-        arr.push(value)
-        saveArray(arr)
-        arr = []
-    }
-}
-
-function saveArray(array) {
-    result.push(array)
-}
-
-while (true) {
-    let now = []
-    path.forEach(element => {
-        if (start == element[3]) {
-            now.push(element[2])
-            now.push(element[3])
-            now.push(element[4])
+function search(begin, destination) {
+    let result = []
+    let quese = []
+    path.forEach((element) => {
+        if (element[3] == begin) {
+            let arr = [element[3]]
+            quese.push(arr)
         }
     })
 
-    console.log(now);
+    while (quese.length > 0) {
+        let now = quese[0]
+        if (now[now.length - 1] == destination) {
+            let arr = [...now]
+            result.push(arr)
+        } else {
+            path.forEach(element => {
+                if (element[3] == now[now.length - 1]) {
+                    let next = (element[4] != null) ? element[4] : undefined
+                    let back = (element[2] != null) ? element[2] : undefined
+                    let double_next = (element[5] != null) ? element[5] : undefined
+                    let double_back = (element[1] != null) ? element[1] : undefined
+                    let triple_next = (element[6] != null) ? element[6] : undefined
+                    let triple_back = (element[0] != null) ? element[0] : undefined
 
-    if (now.length <= 0) {
-        console.log("404");
-        break
-    }
+                    // console.log(next, back, double_next, double_back, triple_next, triple_back);
+                    if (next != undefined && now.find((value) => value == next) != next) {
+                        let x = [...now]
+                        x.push(next)
+                        quese.push(x)
+                    }
 
-    if (now[1] == end) {
-        createArray(now[1], 1)
-        break
-    }
+                    if (back != undefined && now.find((value) => value == back) != back) {
+                        let x = [...now]
+                        x.push(back)
+                        quese.push(x)
+                    }
 
-    if (now[0] != null && now[0] != prev) {
-        console.log("back");
-        createArray(now[1], 0)
-        start = now[0]
-        prev = now[1]
-    }else if (now[2] != null && now[2] != prev) {
-        console.log("next");
-        createArray(now[1], 0)
-        start = now[2]
-        prev = now[1]
-    }else {
-        console.log("404");
-        break
+                    if (double_next != undefined && now.find((value) => value ==  double_next) != double_next) {
+                        let x = [...now]
+                        x.push(double_next)
+                        quese.push(x)
+                    }
+
+                    if (double_back != undefined && now.find((value) => value ==  double_back) != double_back) {
+                        let x = [...now]
+                        x.push(double_back)
+                        quese.push(x)
+                    }
+
+                    if (triple_next != undefined && now.find((value) => value ==  triple_next) != triple_next) {
+                        let x = [...now]
+                        x.push(triple_next)
+                        quese.push(x)
+                    }
+
+                    if (triple_back != undefined && now.find((value) => value ==  triple_back) != triple_back) {
+                        let x = [...now]
+                        x.push(triple_back)
+                        quese.push(x)
+                    }
+                }
+            })
+            console.log(quese);
+        }
+        quese.shift()
     }
+    return result
 }
 
-console.log(result);
+let x = search(1, 2)
+console.log(x);
