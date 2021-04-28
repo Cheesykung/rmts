@@ -39,10 +39,9 @@ router.post("/search", async (req, res, next) => {
       });
 
       // filter to max the routes for 20 routes
-      if (routes.length > 20) {
-        routes.splice(20, routes.length - 20);
+      if (routes.length > 5) {
+        routes.splice(5, routes.length - 5);
       }
-
       axios({
         method: "get",
         url: "http://localhost:3000/getdata",
