@@ -58,7 +58,7 @@ router.get("/getdata", async (req, res) => {
     const route = {
       fullpath: path,
       total_cost: 0,
-      total_time: 0 + " minutes",
+      total_time: 0 ,
       total_transit: totaltran,
     }
     final.push(route)
@@ -81,8 +81,8 @@ router.get("/station/:id", (req, res) => {
       console.log(results[0][0]);
       const show = results[0][0];
       res.json({
-        name: show,
-        totaltransit: totaltran,
+        name : show,
+        totaltransit : totaltran,
         error: null,
       });
     })
