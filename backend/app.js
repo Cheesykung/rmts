@@ -11,9 +11,11 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 //router
 const searchRouter = require('./api/searchAPI')
+const getdata = require('./api/getdata')
 
 // register router
 app.use(searchRouter.router)
+app.use(getdata.router)
 
 // open port
 app.listen(3000, () => {
