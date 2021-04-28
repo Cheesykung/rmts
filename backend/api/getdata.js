@@ -1,11 +1,12 @@
 // require package
 const express = require("express");
-const pool = require("./config");
+const pool = require("../config");
 
 router = express.Router();
 
 router.get("/getdata", async (req, res) => {
   let array = req.body.data;
+  console.log(array)
   let final = []
   for (i in array) {
     let data = array[i]
@@ -45,7 +46,7 @@ router.get("/getdata", async (req, res) => {
   }//for
 
   res.json({
-    way: final,
+    routes: final,
     error: null
   });//res
 

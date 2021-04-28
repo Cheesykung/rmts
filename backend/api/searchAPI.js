@@ -27,7 +27,6 @@ router.post("/search", async (req, res, next) => {
 
       // begin finding routes
       let routes = pathFinder(start, des, path);
-
       // sort for most smaller first
       routes.sort((a, b) => {
         if (a.lenght < b.lenght) {
@@ -41,21 +40,27 @@ router.post("/search", async (req, res, next) => {
 
       // filter to max the routes for 20 routes
       if (routes.length > 20) {
-        routes.splice(20, routes.length - 20)
+        routes.splice(20, routes.length - 20);
       }
 
-      axios.post('http://localhost:3000/getdata', { data: routes }).then((response) => {
-        let payload = response
-        res.status(200).send(payload.data)
-      }).catch((err) => {
-        res.status(400).send("Bad Request")
-        console.log(err);
-      });
-    }).catch((err) => {
-      res.status(500).send("Internal Server Error")
+      axios({
+        method: "get",
+        url: "http://localhost:3000/getdata",
+        data: { data: routes },
+      })
+        .then((response) => {
+          let payload = response;
+          res.status(200).send(payload.data);
+        })
+        .catch((err) => {
+          res.status(400).send("Bad Request");
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      res.status(500).send("Internal Server Error");
       return next(err);
     });
-
 });
 
 exports.router = router;
