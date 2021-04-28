@@ -6,7 +6,6 @@ router = express.Router();
 
 router.get("/getdata", async (req, res) => {
   let array = req.body.data;
-  console.log(array)
   let final = []
   for (i in array) {
     let data = array[i]
