@@ -1,6 +1,4 @@
-const path = [[null,null,null,1,2,3,null], [null,null,1,2,3,4,null], [null,2,1,3,4,null,null], [null,2,3,4,null,null,null]]
-
-function search(begin, destination) {
+function search(begin, destination, path) {
     let result = []
     let quese = []
     path.forEach((element) => {
@@ -25,7 +23,6 @@ function search(begin, destination) {
                     let triple_next = (element[6] != null) ? element[6] : undefined
                     let triple_back = (element[0] != null) ? element[0] : undefined
 
-                    // console.log(next, back, double_next, double_back, triple_next, triple_back);
                     if (next != undefined && now.find((value) => value == next) != next) {
                         let x = [...now]
                         x.push(next)
@@ -38,37 +35,35 @@ function search(begin, destination) {
                         quese.push(x)
                     }
 
-                    if (double_next != undefined && now.find((value) => value ==  double_next) != double_next) {
+                    if (double_next != undefined && now.find((value) => value == double_next) != double_next) {
                         let x = [...now]
                         x.push(double_next)
                         quese.push(x)
                     }
 
-                    if (double_back != undefined && now.find((value) => value ==  double_back) != double_back) {
+                    if (double_back != undefined && now.find((value) => value == double_back) != double_back) {
                         let x = [...now]
                         x.push(double_back)
                         quese.push(x)
                     }
 
-                    if (triple_next != undefined && now.find((value) => value ==  triple_next) != triple_next) {
+                    if (triple_next != undefined && now.find((value) => value == triple_next) != triple_next) {
                         let x = [...now]
                         x.push(triple_next)
                         quese.push(x)
                     }
 
-                    if (triple_back != undefined && now.find((value) => value ==  triple_back) != triple_back) {
+                    if (triple_back != undefined && now.find((value) => value == triple_back) != triple_back) {
                         let x = [...now]
                         x.push(triple_back)
                         quese.push(x)
                     }
                 }
             })
-            console.log(quese);
         }
         quese.shift()
     }
     return result
 }
 
-let x = search(1, 2)
-console.log(x);
+module.exports = search
