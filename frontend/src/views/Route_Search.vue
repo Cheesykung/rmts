@@ -14,7 +14,7 @@
     </div>
     <div class="hero-foot">
       <div id="page-name" class="container p-1">
-        <p style="color: white; font-size: 6vw; font-weight: bold;">ค้นหาเส้นทาง</p>
+        <p style="color: white; font-size: 5vw; font-weight: bold;">ค้นหาเส้นทาง</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 p-5">
@@ -25,17 +25,17 @@
                 <div class="control">
                   <div class="select is-medium">
                     <select name="">
-                      <option value="Argentina">ARL</option>
-                      <option value="Argentina">BTS</option>
-                      <option value="Argentina">MRT</option>
-                      <option value="Argentina">SRT</option>
+                      <option value="ARL">ARL</option>
+                      <option value="BTS">BTS</option>
+                      <option value="MRT">MRT</option>
+                      <option value="SRT">SRT</option>
                     </select>
                   </div>
                 </div>
                 <div class="control is-expanded">
                   <div class="select is-fullwidth is-medium">
                     <select name="">
-                      <option value="Argentina">ARL</option>
+                      <option value="ARL">ARL</option>
                     </select>
                   </div>
                 </div>
@@ -47,17 +47,17 @@
                 <div class="control">
                   <div class="select is-medium">
                     <select name="">
-                      <option value="Argentina">ARL</option>
-                      <option value="Argentina">BTS</option>
-                      <option value="Argentina">MRT</option>
-                      <option value="Argentina">SRT</option>
+                      <option value="ARL">ARL</option>
+                      <option value="BTS">BTS</option>
+                      <option value="MRT">MRT</option>
+                      <option value="SRT">SRT</option>
                     </select>
                   </div>
                 </div>
                 <div class="control is-expanded">
                   <div class="select is-fullwidth is-medium">
                     <select name="">
-                      <option value="Argentina">ARL</option>
+                      <option value="ARL">ARL</option>
                     </select>
                   </div>
                 </div>
@@ -78,12 +78,12 @@
             <div class="column is-4"></div>
           </div>
           <div class="has-text-centered p-5">
-            <div class="button button-custom">ค้นหาเส้นทาง</div>
+            <div class="button button-custom" @click="$router.push('/route_result');">ค้นหาเส้นทาง</div>
           </div>
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
-        <p style="color: white">Copyright © 2020 Sephora Digital SEA Pte Ltd</p>
+        <p style="color: white">Copyright © 2021 Railway Mass Transit System</p>
       </div>
     </div>
   </div>
@@ -140,6 +140,8 @@
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -148,6 +150,7 @@ export default {
   },
   created() {
     document.title = this.$route.meta.title;
+    axios
   },
 }
 </script>

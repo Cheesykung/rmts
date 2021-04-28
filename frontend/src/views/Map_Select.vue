@@ -16,7 +16,7 @@
         <p style="color: white; font-size: 6vw; font-weight: bold;">แผนผังการเดินรถไฟ</p>
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
-        <div class="container pt-3 pb-3">
+        <div class="container pt-5 pb-1">
           <div class="columns m-0 is-centered">
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/arl_map');">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
-        <p style="color: white">Copyright © 2020 Sephora Digital SEA Pte Ltd</p>
+        <p style="color: white">Copyright © 2021 Railway Mass Transit System</p>
       </div>
     </div>
   </div>
