@@ -1,38 +1,63 @@
-const PjobJabFinder = require('../components/searchEngine')
-const express = require('express')
-const axios = require('axios')
-const pool = require('../config')
+const pathFinder = require("../components/searchEngine");
+const express = require("express");
+const axios = require("axios");
+const pool = require("../config");
 
-router = express.Router()
+router = express.Router();
 
-router.post('/search', async (req, res, next) => {
-    const start = req.query.start
-    const des = req.query.des
-    let path = null
-    const connection = pool.getConnection()
-    await connection.beginTransaction()
+router.post("/search", async (req, res, next) => {
+  const start = req.query.start;
+  const des = req.query.des;
+  const promise1 = pool.query("SELECT * FROM before_next");
 
-    const promise1 = pool.query("SELECT * FROM before_next");
+  Promise.all([promise1])
+    .then((results) => {
+      const blogs = results[0][0];
+      let path = blogs.map((element) => {
+        return [
+          element.before3,
+          element.before2,
+          element.before1,
+          element.station_id,
+          element.next1,
+          element.next2,
+          element.next3,
+        ];
+      });
 
-    promise1.then((results) => {
-            const data = results[0];
-            path = data[0]
-        })
-        .catch((err) => {
-            return res.status(500).json(err);
-        });
+      // begin finding routes
+      let routes = pathFinder(start, des, path);
 
-    axios.post('http://localhost:3000/hello', { key: 'Fook' }).then((response) => {
-        let y = response
-        res.send(y.data)
-    }).catch((err) => {
-        console.log(err);
+      // sort for most smaller first
+      routes.sort((a, b) => {
+        if (a.lenght < b.lenght) {
+          return -1;
+        } else if (a.lenght > b.lenght) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+
+      // filter to max the routes for 20 routes
+      if (routes.length > 20) {
+          routes.splice(20, routes.length - 20)
+      }
+
+      console.log(routes);
+      console.log(routes.length);
+      res.status(200).send();
+    })
+    .catch((err) => {
+      return next(err);
     });
-})
 
-router.post('/hello', (req, res) => {
-    let x = req.body.key
-    res.send("Hello " + x)
-})
+  // axios.post('http://localhost:3000/hello', { key: 'Fook' }).then((response) => {
+  //     let y = response
+  //     res.send(y.data)
+  // }).catch((err) => {
+  //     console.log(err);
+  // });
+});
 
 exports.router = router;
