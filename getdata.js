@@ -36,7 +36,6 @@ router.get("/getdata", async (req, res) => {
     while(count<stop){
       let table = await pool.query("select * from stations where station_id = ?",[data[count]])
       let tran = ''
-      let station = []
       const name =  table[0][0].station_name
       const type =  table[0][0].type
       if (table[0][0].transit == 1){
@@ -53,8 +52,7 @@ router.get("/getdata", async (req, res) => {
                 'time' : 1,
                 'cost' : 0
             }
-      station.push(saved)
-      path.push(station)
+      path.push(saved)
       count++
     }//while
     const route = {
