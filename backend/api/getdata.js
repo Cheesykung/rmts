@@ -13,6 +13,8 @@ router.get("/getdata", async (req, res) => {
     let totaltran = 0
     let stop = data.length
     let count = 0
+    let total_time = 0
+    let time = 0
     while (count < stop) {
       let table = await pool.query("select * from stations where station_id = ?", [data[count]])
       let tran = ''
@@ -25,11 +27,23 @@ router.get("/getdata", async (req, res) => {
       else {
         tran = 'false'
       }
+
+      if (table[0][0].type == 'SRT') {
+        let query1 = await pool.query("select used_time from srt where station_id = ?", [data[count]])
+        time = query1[0][0]
+      } else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
+        time = 2
+      } else if (table[0][0].type == 'ARL') {
+        time = 5
+      }
+
+      total_time += time
+
       const saved = {
         'name': name,
         'type': type,
         'transit': tran,
-        'time': 1,
+        'time': time,
         'cost': 0
       }
       path.push(saved)
@@ -38,7 +52,7 @@ router.get("/getdata", async (req, res) => {
     const route = {
       fullpath: path,
       total_cost: 0,
-      total_time: 0,
+      total_time: total_time,
       total_transit: totaltran,
     }
     final.push(route)
