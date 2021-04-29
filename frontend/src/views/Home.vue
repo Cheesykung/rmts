@@ -96,18 +96,21 @@
   color: white;
   font-family: 'Kanit', sans-serif;
 }
+
 .fontadmin{
-font-family: 'Montserrat', sans-serif;
-font-style: italic;
-background: linear-gradient(85.2deg, #505EE0 4.87%, #48C5B5 95.68%);
-background-clip: text;
--webkit-text-fill-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  background: linear-gradient(85.2deg, #505EE0 4.87%, #48C5B5 95.68%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .fontunversal{
   font-family: 'Montserrat', sans-serif;
-font-style: bold;
-font-size: 24;
+  font-style: bold;
+  font-size: 24;
 }
+
 .font-button{
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
