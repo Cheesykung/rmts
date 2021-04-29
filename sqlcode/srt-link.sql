@@ -81,7 +81,7 @@ VALUES
 (null, null, 56, 55, 54, null, null),
 (null, null, 55, 54, null, null, null),
 
--- SRT เขตเมือง 82 -> วงเวียนใหญ่ 72
+-- SRT เขตเมือง 82 -> บ้านแหลม 72
 (null, null, null, 82, 81, null, null),
 (null, null, 82, 81, 80, null, null),
 (null, null, 81, 80, 79, null, null),

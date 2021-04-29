@@ -2,8 +2,8 @@ def main():
     ty = str(input("Type: "))
     start = int(input("Start: "))
     end = int(input("End: "))
-    codename = str(input("Codename: "))
-    code = int(input("CodeStart: "))
+    # codename = str(input("Codename: "))
+    # code = int(input("CodeStart: "))
 
     # if (ty == "-"):
     #     for i in range(start, end-1, -1):
@@ -22,5 +22,14 @@ def main():
     #     for i in range(start, end+1):
     #         print("(%d, %d, \"%s%d\"),"%(i, 0, codename, code))
     #         code += 1
+
+    if (ty == "-"):
+        for i in range(start, end-1, -1):
+            print("(%d, 0, ),"%(i))
+
+    else:
+        for i in range(start, end+1):
+            print("(%d, 0, ),"%(i))
+
 
 main()
