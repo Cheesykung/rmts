@@ -5,14 +5,10 @@ const pool = require("../config");
 
 router = express.Router();
 
-router.post("/search", async (req, res, next) => {
+router.get("/search", async (req, res, next) => {
   const start = req.query.start;
   const des = req.query.des;
   const promise1 = pool.query("SELECT * FROM before_next");
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
 
   Promise.all([promise1])
     .then((results) => {
@@ -54,6 +50,10 @@ router.post("/search", async (req, res, next) => {
         .then((response) => {
           let payload = response;
           res.status(200).send(payload.data);
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+          res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+          res.setHeader('Access-Control-Allow-Credentials', true);
         })
         .catch((err) => {
           res.status(400).send("Bad Request");
