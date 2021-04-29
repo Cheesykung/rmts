@@ -6,26 +6,48 @@ const pool = require("../config");
 router = express.Router();
 
 router.get("/search", async (req, res, next) => {
-  const start_type = req.params.start_type
-  const begin = req.params.start
-  const des_type = req.params.des_type
-  const finish = req.params.des
-  let start = null;
-  let des = null;
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  ); // If needed
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
 
-  const promise = pool.query("SELECT station_id FROM stations WHERE station_name like '%?%' and type = ?", [begin, start_type])
-  promise.then((results) => {
-    const getData = results[0][0];
-    start = getData.station_id
-  })
-  console.log(start);
+  const begin = req.query.start;
+  const start_type = req.query.start_type;
+  const finish = req.query.des;
+  const des_type = req.query.des_type;
 
-  const promise2 = pool.query("SELECT station_id FROM stations WHERE station_name like '%?%' and type = ?", [finish, des_type])
-  promise2.then((results) => {
-    const getData = results[0][0];
-    des = getData.station_id
-  })
-  console.log(des);
+  const promise = pool.query(
+    " SELECT station_id FROM stations WHERE station_name = ? and type = ? ",
+    [begin, start_type]
+  );
+  let start = await promise.then((results) => {
+    try {
+      const getData = results[0][0];
+      return getData.station_id;
+    } catch (e) {
+      return 0;
+    }
+  });
+
+  const promise2 = pool.query(
+    " SELECT station_id FROM stations WHERE station_name = ? and type = ? ",
+    [finish, des_type]
+  );
+
+  let des = await promise2.then((results) => {
+    try {
+      const getData = results[0][0];
+      return getData.station_id;
+    } catch (e) {
+      return 0;
+    }
+  });
 
   const promise3 = pool.query("SELECT * FROM before_next");
 
@@ -68,11 +90,11 @@ router.get("/search", async (req, res, next) => {
       })
         .then((response) => {
           let payload = response;
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-          res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-          res.setHeader('Access-Control-Allow-Credentials', true);
-          res.status(200).send(payload.data);
+          if (payload.data.routes.length <= 0) {
+            res.status(404).send("Not Found");
+          } else {
+            res.status(200).send(payload.data);
+          }
         })
         .catch((err) => {
           res.status(400).send("Bad Request");
