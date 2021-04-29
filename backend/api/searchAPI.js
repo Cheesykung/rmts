@@ -6,8 +6,8 @@ const pool = require("../config");
 router = express.Router();
 
 router.get("/search", async (req, res, next) => {
-  const start = req.query.start;
-  const des = req.query.des;
+  const start = req.params.start;
+  const des = req.params.des;
   const promise1 = pool.query("SELECT * FROM before_next");
 
   Promise.all([promise1])
