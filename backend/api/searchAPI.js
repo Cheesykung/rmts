@@ -9,6 +9,10 @@ router.post("/search", async (req, res, next) => {
   const start = req.query.start;
   const des = req.query.des;
   const promise1 = pool.query("SELECT * FROM before_next");
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
 
   Promise.all([promise1])
     .then((results) => {
