@@ -62,13 +62,13 @@
             <div class="column is-7 form-font">
               <div v-for="(route,index) in routes" :key="index">
                 <div class="columns has-background-white m-1">
-                  <div class="column is-6 has-text-centered">
+                  <div class="column is-5 has-text-centered">
                     <span>
                       <p>เส้นทางที่ {{ index + 1 }}</p>
                       <a @click="RouteDisplay(index)">แสดง</a>
                     </span>
                   </div>
-                  <div class="column is-3 has-text-centered">
+                  <div class="column is-4 has-text-centered">
                     <p>รวม {{ route.total_time }} นาที</p>
                     <p id="transit-noti">{{ route.total_transit }} จุดเปลี่ยนเส้นทาง</p>
                   </div>
@@ -78,13 +78,13 @@
                 </div>
                 <template v-if="route_display.includes(index)">
                   <div class="columns has-background-white m-1" v-for="(path,index) in route.fullpath" :key="index">
-                    <div class="column is-6 has-text-centered">
+                    <div class="column is-5 has-text-centered">
                       <span>
                         <p>{{ path.name }}</p>
                         <p>{{ path.type }}</p>
                       </span>
                     </div>
-                    <div class="column is-3 has-text-centered">
+                    <div class="column is-4 has-text-centered">
                       <p>{{ path.time }} นาที</p>
                     </div>
                     <div class="column is-3 has-text-centered" style="color: #505EE0">
@@ -260,7 +260,8 @@ export default {
   methods: {
     RouteDisplay(index) {
       if(this.route_display.includes(index)) {
-        this.route_display.pop(index)
+        const temp = this.route_display.indexOf(index)
+        this.route_display.splice(temp, 1)
       }
       else {
         this.route_display.push(index)
