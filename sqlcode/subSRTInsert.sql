@@ -1,4 +1,4 @@
-INSERT INTO `rmts`.`mrt` (`station_id`, `station_zone`, `used_time`)
+INSERT INTO `rmts`.`srt` (`station_id`, `station_zone`, `used_time`)
 values 
 (82, 0, 6),
 (81, 0, 4),
