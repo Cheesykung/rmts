@@ -159,103 +159,18 @@
 </style>
 
 <script>
-import axios from "axios";
-
 export default {
+  name: "route_result",
   data() {
-    return {   
-      routes: [
-        {
-          fullpath: [
-            {
-              name: "กรุงเทพ",
-              type: "SRT",
-              transit: "true",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "บางซื่อ",
-              type: "SRT",
-              transit: "true",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "ยมราช",
-              type: "SRT",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "ประดิพันธ์",
-              type: "SRT",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "รังสิต",
-              type: "SRT",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-          ],
-          total_cost: 0,
-          total_time: 0,
-          total_transit: 2,
-        },
-        {
-          fullpath: [
-            {
-              name: "กรุงเทพ",
-              type: "SRT",
-              transit: "true",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "บางซื่อ",
-              type: "SRT",
-              transit: "true",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "แพรกษา",
-              type: "BTS",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "ประดิพันธ์",
-              type: "SRT",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-            {
-              name: "รังสิต",
-              type: "SRT",
-              transit: "false",
-              time: 1,
-              cost: 0,
-            },
-          ],
-          total_cost: 0,
-          total_time: 0,
-          total_transit: 2,
-        },
-      ],
+    return {
+      routes: [],
       route_display: [],
     };
   },
   created() {
     document.title = this.$route.meta.title;
-    axios
+    this.routes = this.$route.params.data
+    console.log(this.$route.params.data)
   },
   methods: {
     RouteDisplay(index) {
@@ -284,4 +199,91 @@ export default {
     }
   }*/
 }
+      // routes: [
+      //   {
+      //     fullpath: [
+      //       {
+      //         name: "กรุงเทพ",
+      //         type: "SRT",
+      //         transit: "true",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "บางซื่อ",
+      //         type: "SRT",
+      //         transit: "true",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "ยมราช",
+      //         type: "SRT",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "ประดิพันธ์",
+      //         type: "SRT",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "รังสิต",
+      //         type: "SRT",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //     ],
+      //     total_cost: 0,
+      //     total_time: 0,
+      //     total_transit: 2,
+      //   },
+      //   {
+      //     fullpath: [
+      //       {
+      //         name: "กรุงเทพ",
+      //         type: "SRT",
+      //         transit: "true",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "บางซื่อ",
+      //         type: "SRT",
+      //         transit: "true",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "แพรกษา",
+      //         type: "BTS",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "ประดิพันธ์",
+      //         type: "SRT",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //       {
+      //         name: "รังสิต",
+      //         type: "SRT",
+      //         transit: "false",
+      //         time: 1,
+      //         cost: 0,
+      //       },
+      //     ],
+      //     total_cost: 0,
+      //     total_time: 0,
+      //     total_transit: 2,
+      //   },
+      // ],
 </script>
+

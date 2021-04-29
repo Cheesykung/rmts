@@ -33,11 +33,7 @@
                   </div>
                 </div>
                 <div class="control is-expanded">
-                  <div class="select is-fullwidth is-medium">
-                    <select name="">
-                      <option value="ARL">ARL</option>
-                    </select>
-                  </div>
+                  <input class="input" type="text" v-model="start">
                 </div>
               </div>
             </div>
@@ -55,11 +51,7 @@
                   </div>
                 </div>
                 <div class="control is-expanded">
-                  <div class="select is-fullwidth is-medium">
-                    <select name="">
-                      <option value="ARL">ARL</option>
-                    </select>
-                  </div>
+                  <input class="input" type="text" v-model="end">
                 </div>
               </div>
             </div>
@@ -78,7 +70,7 @@
             <div class="column is-4"></div>
           </div>
           <div class="has-text-centered p-5">
-            <div class="button button-custom" @click="$router.push('/route_result');">ค้นหาเส้นทาง</div>
+            <div class="button button-custom" @click="route_search();">ค้นหาเส้นทาง</div>
           </div>
         </div>
       </div>
@@ -145,12 +137,32 @@ import axios from "axios";
 export default {
   data() {
     return {
-      loginPage: false
+      routes: [],
+      start: "",
+      end: ""
     };
   },
   created() {
     document.title = this.$route.meta.title;
-    axios
   },
+  methods: {
+    route_search() {
+      axios
+      .get(`http://localhost:3000/search`, {
+        params: {start: this.start, des: this.end}
+      })
+      .then((response) => {
+        this.routes = response.data.routes;
+        console.log(this.routes)
+        this.$router.push({
+          name: 'route_result',
+          params: { data: this.routes }
+        });
+      })
+      .catch((error) => {
+        this.error = error;
+      });
+    }
+  }
 }
 </script>

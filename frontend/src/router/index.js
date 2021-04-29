@@ -44,13 +44,13 @@ const routes = [
     path: '/route_search',
     name: 'route_search',
     component: () => import('../views/Route_Search.vue'),
-    meta: {title: 'Search - Railway Mass Transit System'}
+    meta: {title: 'Search - Railway Mass Transit System'},
   },
   {
     path: '/route_result',
     name: 'route_result',
     component: () => import('../views/Route_Result.vue'),
-    meta: {title: 'Result - Railway Mass Transit System'}
+    meta: {title: 'Result - Railway Mass Transit System'},
   }
 ]
 
