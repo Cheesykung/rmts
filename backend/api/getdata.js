@@ -30,7 +30,7 @@ router.get("/getdata", async (req, res) => {
 
       if (table[0][0].type == 'SRT') {
         let query1 = await pool.query("select used_time from srt where station_id = ?", [data[count]])
-        time = query1[0][0]
+        time = query1[0][0].used_time
       } else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
         time = 2
       } else if (table[0][0].type == 'ARL') {

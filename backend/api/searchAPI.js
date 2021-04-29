@@ -6,14 +6,55 @@ const pool = require("../config");
 router = express.Router();
 
 router.get("/search", async (req, res, next) => {
-  const start = req.params.start;
-  const des = req.params.des;
-  const promise1 = pool.query("SELECT * FROM before_next");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  ); // If needed
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
 
-  Promise.all([promise1])
+  const begin = req.query.start;
+  const start_type = req.query.start_type;
+  const finish = req.query.des;
+  const des_type = req.query.des_type;
+
+  const promise = pool.query(
+    " SELECT station_id FROM stations WHERE station_name = ? and type = ? ",
+    [begin, start_type]
+  );
+  let start = await promise.then((results) => {
+    try {
+      const getData = results[0][0];
+      return getData.station_id;
+    } catch (e) {
+      return 0;
+    }
+  });
+
+  const promise2 = pool.query(
+    " SELECT station_id FROM stations WHERE station_name = ? and type = ? ",
+    [finish, des_type]
+  );
+
+  let des = await promise2.then((results) => {
+    try {
+      const getData = results[0][0];
+      return getData.station_id;
+    } catch (e) {
+      return 0;
+    }
+  });
+
+  const promise3 = pool.query("SELECT * FROM before_next");
+
+  Promise.all([promise3])
     .then((results) => {
-      const blogs = results[0][0];
-      let path = blogs.map((element) => {
+      const getData = results[0][0];
+      let path = getData.map((element) => {
         return [
           element.before3,
           element.before2,
@@ -49,11 +90,11 @@ router.get("/search", async (req, res, next) => {
       })
         .then((response) => {
           let payload = response;
-          res.status(200).send(payload.data);
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-          res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-          res.setHeader('Access-Control-Allow-Credentials', true);
+          if (payload.data.routes.length <= 0) {
+            res.status(404).send("Not Found");
+          } else {
+            res.status(200).send(payload.data);
+          }
         })
         .catch((err) => {
           res.status(400).send("Bad Request");
