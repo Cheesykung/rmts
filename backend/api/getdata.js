@@ -66,7 +66,16 @@ router.get("/getdata", async (req, res) => {
 });//get
 
 router.get("/stations", (req, res) => {
-  const id = req.body.id;
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  ); // If needed
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   let data = pool.query("select station_name,type from stations ");
   data
     .then((results) => {
