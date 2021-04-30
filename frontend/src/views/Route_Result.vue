@@ -138,6 +138,14 @@ export default {
       des_type: "",
     };
   },
+  beforeCreated() {
+    document.title = this.$route.meta.title;
+    this.routes = this.$route.params.routes
+    this.start = this.$route.params.start,
+    this.start_type = this.$route.params.start_type,
+    this.des = this.$route.params.des,
+    this.des_type = this.$route.params.des_type
+  },
   created() {
     document.title = this.$route.meta.title;
     this.routes = this.$route.params.routes
@@ -156,6 +164,15 @@ export default {
         this.route_display.push(index)
       }
     }
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      if(this.routes == undefined) {
+        this.$router.push({
+          path: '/route_search',
+        });
+      }
+    })
   }
   /*computed: {
     PathLength() {
