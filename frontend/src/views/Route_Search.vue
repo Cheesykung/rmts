@@ -24,7 +24,7 @@
               <div class="field has-addons">
                 <div class="control">
                   <div class="select is-medium">
-                    <select name="">
+                    <select v-model="start_type">
                       <option value="ARL">ARL</option>
                       <option value="BTS">BTS</option>
                       <option value="MRT">MRT</option>
@@ -42,7 +42,7 @@
               <div class="field has-addons">
                 <div class="control">
                   <div class="select is-medium">
-                    <select name="">
+                    <select v-model="des_type">
                       <option value="ARL">ARL</option>
                       <option value="BTS">BTS</option>
                       <option value="MRT">MRT</option>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
                 <div class="control is-expanded">
-                  <input class="input" type="text" v-model="end">
+                  <input class="input" type="text" v-model="des">
                 </div>
               </div>
             </div>
@@ -139,7 +139,9 @@ export default {
     return {
       routes: [],
       start: "",
-      end: ""
+      start_type: "",
+      des: "",
+      des_type: "",
     };
   },
   created() {
@@ -149,14 +151,25 @@ export default {
     route_search() {
       axios
       .get(`http://localhost:3000/search`, {
-        params: {start: this.start, des: this.end}
+        params: {
+          start: this.start,
+          start_type: this.start_type,
+          des: this.des,
+          des_type: this.des_type,
+        }
       })
       .then((response) => {
         this.routes = response.data.routes;
         console.log(this.routes)
         this.$router.push({
           name: 'route_result',
-          params: { data: this.routes }
+          params: { 
+            routes: this.routes,
+            start: this.start,
+            start_type: this.start_type,
+            des: this.des,
+            des_type: this.des_type,
+          }
         });
       })
       .catch((error) => {

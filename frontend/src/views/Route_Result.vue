@@ -23,18 +23,10 @@
               <p class="form-font">ต้นทาง</p>
               <div class="field has-addons">
                 <div class="control">
-                  <div class="select is-medium">
-                    <select name="">
-                      <option value=""></option>
-                    </select>
-                  </div>
+                  <div class="button is-medium is-static">{{ start_type }}</div>
                 </div>
                 <div class="control is-expanded">
-                  <div class="select is-fullwidth is-medium">
-                    <select name="">
-                      <option value=""></option>
-                    </select>
-                  </div>
+                  <div class="button is-fullwidth is-medium is-static">{{ start }}</div>
                 </div>
               </div>
             </div>
@@ -42,18 +34,10 @@
               <p class="form-font">ปลายทาง</p>
               <div class="field has-addons">
                 <div class="control">
-                  <div class="select is-medium">
-                    <select name="">
-                      <option value=""></option>
-                    </select>
-                  </div>
+                  <div class="button is-medium is-static">{{ des_type }}</div>
                 </div>
                 <div class="control is-expanded">
-                  <div class="select is-fullwidth is-medium">
-                    <select name="">
-                      <option value=""></option>
-                    </select>
-                  </div>
+                  <div class="button is-fullwidth is-medium is-static">{{ des }}</div>
                 </div>
               </div>
             </div>
@@ -70,7 +54,7 @@
                   </div>
                   <div class="column is-4 has-text-centered">
                     <p>รวม {{ route.total_time }} นาที</p>
-                    <p id="transit-noti">{{ route.total_transit }} จุดเปลี่ยนเส้นทาง</p>
+                    <p id="transit-font">{{ route.total_transit }} จุดเปลี่ยนเส้นทาง</p>
                   </div>
                   <div class="column is-3 has-text-centered" style="color: #505EE0">
                     <p>รวม {{ route.total_cost }} บาท</p>
@@ -85,10 +69,10 @@
                       </span>
                     </div>
                     <div class="column is-4 has-text-centered">
-                      <p>{{ path.time }} นาที</p>
+                      <p>~ {{ path.time }} นาที</p>
                     </div>
                     <div class="column is-3 has-text-centered" style="color: #505EE0">
-                      <p>{{ path.cost }} บาท</p>
+                      <p>~ {{ path.cost }} บาท</p>
                     </div>
                   </div>
                 </template>
@@ -113,24 +97,6 @@
   font-family: 'Kanit', sans-serif;
 }
 
-.button-custom {
-  background: linear-gradient(87.58deg, #505EE0 0%, #48C5B5 99.48%);
-  box-shadow: 18px 18px 30px #D1D9E6, -18px -18px 30px #FFFFFF;
-  border-radius: 160px;
-  color: white;
-  padding: 30px;
-  font-size: 25px;
-  font-family: 'Kanit', sans-serif;
-  font-weight: 500;
-  
-  width: 330px;
-  height: 90px;
-}
-.universal {
-  font-size: 20px;
-  font-family: 'Kanit', sans-serif;
-}
-
 .has-background-custom {
   background: #ECF0F3;
 }
@@ -141,14 +107,17 @@
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
 }
-.font-dropdown{
-  font-family: 'Kanit', sans-serif;
-  font-weight: bold;
-}
-#transit-noti {
+
+#transit-font {
   font-size: 14px; 
   font-weight: 600; 
   color: #B3B7BC;
+}
+
+.is-static {
+  opacity: 1; 
+  background-color: white; 
+  color: black
 }
 
 @media screen and (max-width: 768px) {
@@ -165,12 +134,19 @@ export default {
     return {
       routes: [],
       route_display: [],
+      start: "",
+      start_type: "",
+      des: "",
+      des_type: "",
     };
   },
   created() {
     document.title = this.$route.meta.title;
-    this.routes = this.$route.params.data
-    console.log(this.$route.params.data)
+    this.routes = this.$route.params.routes
+    this.start = this.$route.params.start,
+    this.start_type = this.$route.params.start_type,
+    this.des = this.$route.params.des,
+    this.des_type = this.$route.params.des_type
   },
   methods: {
     RouteDisplay(index) {
