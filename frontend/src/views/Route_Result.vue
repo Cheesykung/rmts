@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <template v-if="route_display.includes(index)">
-                  <div class="columns has-background-white m-1 path-font" v-for="(path,index) in route.fullpath" :key="index">
+                  <div class="columns m-1 path-font" style="background-color: #E5E8FF" v-for="(path,index) in route.fullpath" :key="index">
                     <div class="column is-5 has-text-centered">
                       <span>
                         <p>{{ path.name }}</p>
