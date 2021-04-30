@@ -118,7 +118,6 @@ router.get("/stations", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(show);
       console.log(err);
     });
 });

@@ -67,6 +67,9 @@
                       </option>
                     </select>
                   </div>
+                  <template v-if="$v.des.$error">
+                    <p class="help is-danger" v-if="!$v.des.required">กรุณากรอกข้อมูล</p>
+                  </template>
                 </div>
               </div>
             </div>
@@ -86,7 +89,7 @@
           </div> -->
           <div v-if="error" class="columns is-centered mt-0">
             <div class="column is-4 has-text-centered">
-              <div class="box has-background-warning">
+              <div class="box has-background-danger">
                 <p style="color: white; font-size: 24px">ไม่มีเส้นทางที่เชื่อมต่อกัน</p>
               </div>
             </div>
@@ -154,6 +157,7 @@ select {
 
 <script>
 import axios from "axios";
+import { required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
