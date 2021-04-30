@@ -20,7 +20,8 @@
     "install": "^0.13.0",
     "npm": "^7.9.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

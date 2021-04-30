@@ -72,7 +72,7 @@
                       <p>~ {{ path.time }} นาที</p>
                     </div>
                     <div class="column is-3 has-text-centered" style="color: #505EE0">
-                      <p>~ {{ path.cost }} บาท</p>
+                      <p>{{ path.cost }} บาท</p>
                     </div>
                   </div>
                 </template>
@@ -175,91 +175,5 @@ export default {
     }
   }*/
 }
-      // routes: [
-      //   {
-      //     fullpath: [
-      //       {
-      //         name: "กรุงเทพ",
-      //         type: "SRT",
-      //         transit: "true",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "บางซื่อ",
-      //         type: "SRT",
-      //         transit: "true",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "ยมราช",
-      //         type: "SRT",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "ประดิพันธ์",
-      //         type: "SRT",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "รังสิต",
-      //         type: "SRT",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //     ],
-      //     total_cost: 0,
-      //     total_time: 0,
-      //     total_transit: 2,
-      //   },
-      //   {
-      //     fullpath: [
-      //       {
-      //         name: "กรุงเทพ",
-      //         type: "SRT",
-      //         transit: "true",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "บางซื่อ",
-      //         type: "SRT",
-      //         transit: "true",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "แพรกษา",
-      //         type: "BTS",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "ประดิพันธ์",
-      //         type: "SRT",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //       {
-      //         name: "รังสิต",
-      //         type: "SRT",
-      //         transit: "false",
-      //         time: 1,
-      //         cost: 0,
-      //       },
-      //     ],
-      //     total_cost: 0,
-      //     total_time: 0,
-      //     total_transit: 2,
-      //   },
-      // ],
 </script>
 

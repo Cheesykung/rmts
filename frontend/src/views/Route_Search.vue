@@ -33,7 +33,13 @@
                   </div>
                 </div>
                 <div class="control is-expanded">
-                  <input class="input" type="text" v-model="start">
+                  <div class="select is-fullwidth is-medium">
+                    <select v-model="start">
+                      <option v-for="(station,index) in startStationList" :key="index" :value="station.station_name">
+                        {{ station.station_name }}
+                      </option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -51,12 +57,21 @@
                   </div>
                 </div>
                 <div class="control is-expanded">
-                  <input class="input" type="text" v-model="des">
+                  <div class="select is-fullwidth is-medium">
+                    <select v-model="$v.des.$model">
+                      <option v-for="(station,index) in desStationList" :key="index" :value="station.station_name">
+                        {{ station.station_name }}
+                      </option>
+                    </select>
+                  </div>
+                  <template v-if="$v.des.$error">
+                    <p class="help is-danger" v-if="!$v.des.required">กรุณากรอกข้อมูล</p>
+                  </template>
                 </div>
               </div>
             </div>
           </div>
-          <div class="columns is-centered mt-0">
+          <!-- <div class="columns is-centered mt-0">
             <div class="column is-4">
               <p class="form-font">วันเดินทาง</p>
               <div class="field has-addons">
@@ -68,6 +83,13 @@
               </div>
             </div>
             <div class="column is-4"></div>
+          </div> -->
+          <div v-if="error" class="columns is-centered mt-0">
+            <div class="column is-4 has-text-centered">
+              <div class="box has-background-warning">
+                <p style="color: white; font-size: 24px">ไม่มีเส้นทางที่เชื่อมต่อกัน</p>
+              </div>
+            </div>
           </div>
           <div class="has-text-centered p-5">
             <div class="button button-custom" @click="route_search();">ค้นหาเส้นทาง</div>
@@ -118,34 +140,46 @@
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
 }
-.font-dropdown{
-  font-family: 'Kanit', sans-serif;
-  font-weight: bold;
-
-}
 
 @media screen and (max-width: 768px) {
   #page-name {
     text-align: center;
   }
 }
+
+select {
+  font-family: 'Kanit', sans-serif;
+}
 </style>
 
 <script>
 import axios from "axios";
+import { required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
     return {
-      routes: [],
+      stations: [],
+      possible_routes: [],
       start: "",
-      start_type: "",
+      start_type: "ARL",
       des: "",
-      des_type: "",
+      des_type: "ARL",
+      error: null
     };
   },
   created() {
     document.title = this.$route.meta.title;
+    axios
+    .get(`http://localhost:3000/stations`)
+    .then((response) => {
+      this.stations = response.data.stations
+      console.log(response.data.stations)
+    })
+    .catch((error) => {
+      this.error = error
+      console.log(this.error)
+    })
   },
   methods: {
     route_search() {
@@ -159,12 +193,12 @@ export default {
         }
       })
       .then((response) => {
-        this.routes = response.data.routes;
-        console.log(this.routes)
+        this.possible_routes = response.data.routes;
+        console.log(this.possible_routes)
         this.$router.push({
           name: 'route_result',
           params: { 
-            routes: this.routes,
+            routes: this.possible_routes,
             start: this.start,
             start_type: this.start_type,
             des: this.des,
@@ -174,7 +208,28 @@ export default {
       })
       .catch((error) => {
         this.error = error;
+        console.log(this.error)
       });
+    },
+  },
+  validations: {
+    start: {
+      required: required
+    },
+    des: {
+      required: required
+    }
+  },
+  computed: {
+    startStationList() {
+      return this.stations.filter(data => {
+        return data.type == this.start_type
+      })
+    },
+    desStationList() {
+      return this.stations.filter(data => {
+        return data.type == this.des_type
+      })
     }
   }
 }
