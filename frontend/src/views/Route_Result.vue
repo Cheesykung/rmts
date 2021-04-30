@@ -68,7 +68,7 @@
                         <p>{{ path.type }}</p>
                       </span>
                     </div>
-                    <div class="column is-4 has-text-centered">
+                    <div class="column is-4 has-text-centered" style="color: #505EE0">
                       <p id="transit-font">เวลาโดยประมาณ</p>
                       <p>~ {{ path.time }} นาที</p>
                     </div>
