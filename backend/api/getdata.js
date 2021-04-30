@@ -15,6 +15,11 @@ router.get("/getdata", async (req, res) => {
     let count = 0
     let total_time = 0
     let time = 0
+    let checker = null
+    let useMRT = 0
+    let useBTS = 0
+    let useARL = 0
+    let total_cost = 0
     while (count < stop) {
       let table = await pool.query("select * from stations where station_id = ?", [data[count]])
       let tran = ''
@@ -29,11 +34,25 @@ router.get("/getdata", async (req, res) => {
       }
 
       if (table[0][0].type == 'SRT') {
-        let query1 = await pool.query("select used_time from srt where station_id = ?", [data[count]])
+        let query1 = await pool.query("select used_time, station_zone from srt where station_id = ?", [data[count]])
+        let zone = query1[0][0].station_zone
+        if (zone == 21) {
+          total_cost = 10
+        } else {
+          checker = zone
+          total_cost += 2
+        }
         time = query1[0][0].used_time
       } else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
+        if (table[0][0].type == 'MRT') {
+          useMRT = 1
+        }
+        if (table[0][0].type == 'BTS') {
+          useBTS = 1
+        }
         time = 2
       } else if (table[0][0].type == 'ARL') {
+        useARL = 1
         time = 5
       }
 
@@ -44,14 +63,25 @@ router.get("/getdata", async (req, res) => {
         'type': type,
         'transit': tran,
         'time': time,
-        'cost': 0
+        'cost': total_cost
       }
       path.push(saved)
       count++
     }//while
+    if (useMRT == 1) {
+      total_cost += 30
+    }
+    if (useBTS == 1) {
+      total_cost += 35
+    }
+
+    if (useARL == 1) {
+      total_cost += 40
+    }
+
     const route = {
       fullpath: path,
-      total_cost: 0,
+      total_cost: total_cost,
       total_time: total_time,
       total_transit: totaltran,
     }
@@ -82,7 +112,7 @@ router.get("/stations", (req, res) => {
       console.log(results[0]);
       const stations = results[0];
       res.json({
-        stations : stations,
+        stations: stations,
         // id : numid,
         error: null,
       });
