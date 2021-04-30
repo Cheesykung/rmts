@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Vuelidate from 'vuelidate'
 
 import 'bulma/css/bulma.css'
 //import 'bootstrap/dist/css/bootstrap.css'
@@ -14,6 +15,7 @@ import 'bulma/css/bulma.css'
 library.add(fas)
 
 Vue.component('icon', FontAwesomeIcon)
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 

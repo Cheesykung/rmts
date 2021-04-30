@@ -34,12 +34,15 @@
                 </div>
                 <div class="control is-expanded">
                   <div class="select is-fullwidth is-medium">
-                    <select v-model="start">
+                    <select v-model="$v.start.$model">
                       <option v-for="(station,index) in startStationList" :key="index" :value="station.station_name">
                         {{ station.station_name }}
                       </option>
                     </select>
                   </div>
+                  <template v-if="$v.start.$error">
+                    <p class="help is-danger" v-if="!$v.start.required">กรุณากรอกข้อมูล</p>
+                  </template>
                 </div>
               </div>
             </div>
@@ -179,35 +182,48 @@ export default {
   },
   methods: {
     route_search() {
-      axios
-      .get(`http://localhost:3000/search`, {
-        params: {
-          start: this.start,
-          start_type: this.start_type,
-          des: this.des,
-          des_type: this.des_type,
-        }
-      })
-      .then((response) => {
-        this.possible_routes = response.data.routes;
-        console.log(this.possible_routes)
-        this.$router.push({
-          name: 'route_result',
-          params: { 
-            routes: this.possible_routes,
+      this.$v.$touch();
+      if(!this.$v.$invalid) {
+        axios
+        .get(`http://localhost:3000/search`, {
+          params: {
             start: this.start,
             start_type: this.start_type,
             des: this.des,
             des_type: this.des_type,
           }
+        })
+        .then((response) => {
+          this.possible_routes = response.data.routes;
+          console.log(this.possible_routes)
+          this.$router.push({
+            name: 'route_result',
+            params: { 
+              routes: this.possible_routes,
+              start: this.start,
+              start_type: this.start_type,
+              des: this.des,
+              des_type: this.des_type,
+            }
+          });
+        })
+        .catch((error) => {
+          this.error = error;
+          console.log(this.error)
         });
-      })
-      .catch((error) => {
-        this.error = error;
-        console.log(this.error)
-      });
+      }
     },
   },
+
+  validations: {
+    start: {
+      required
+    },
+    des: {
+      required
+    }
+  },
+
   computed: {
     startStationList() {
       return this.stations.filter(data => {
