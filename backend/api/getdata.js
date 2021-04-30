@@ -65,25 +65,24 @@ router.get("/getdata", async (req, res) => {
 
 });//get
 
-// router.get("/stations", (req, res) => {
-//   const id = req.body.id;
-//   let test = pool.query("select * from stations ");
-//   test
-//     .then((results) => {
-//       console.log(results[0]);
-//       const name = results[0];
-//       // const numid = results[0].station_id
-//       res.json({
-//         name: name,
-//         // id : numid,
-//         error: null,
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(show);
-//       console.log(err);
-//     });
-// });
+router.get("/stations", (req, res) => {
+  const id = req.body.id;
+  let data = pool.query("select station_name,type from stations ");
+  data
+    .then((results) => {
+      console.log(results[0]);
+      const stations = results[0];
+      res.json({
+        stations : stations,
+        // id : numid,
+        error: null,
+      });
+    })
+    .catch((err) => {
+      console.log(show);
+      console.log(err);
+    });
+});
 
 // router.get("/station/:id", (req, res) => {
 //   console.log(req.params.id);
