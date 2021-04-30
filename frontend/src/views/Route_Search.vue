@@ -58,15 +58,12 @@
                 </div>
                 <div class="control is-expanded">
                   <div class="select is-fullwidth is-medium">
-                    <select v-model="$v.des.$model">
+                    <select v-model="des">
                       <option v-for="(station,index) in desStationList" :key="index" :value="station.station_name">
                         {{ station.station_name }}
                       </option>
                     </select>
                   </div>
-                  <template v-if="$v.des.$error">
-                    <p class="help is-danger" v-if="!$v.des.required">กรุณากรอกข้อมูล</p>
-                  </template>
                 </div>
               </div>
             </div>
@@ -154,7 +151,6 @@ select {
 
 <script>
 import axios from "axios";
-import { required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -211,14 +207,6 @@ export default {
         console.log(this.error)
       });
     },
-  },
-  validations: {
-    start: {
-      required: required
-    },
-    des: {
-      required: required
-    }
   },
   computed: {
     startStationList() {
