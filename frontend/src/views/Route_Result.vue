@@ -20,7 +20,7 @@
         <div class="container pt-3 p-5">
           <div class="columns is-centered mb-0">
             <div class="column is-4">
-              <p class="form-font">ต้นทาง</p>
+              <p class="normal-font">ต้นทาง</p>
               <div class="field has-addons">
                 <div class="control">
                   <div class="button is-medium is-static">{{ start_type }}</div>
@@ -31,7 +31,7 @@
               </div>
             </div>
             <div class="column is-4">
-              <p class="form-font">ปลายทาง</p>
+              <p class="normal-font">ปลายทาง</p>
               <div class="field has-addons">
                 <div class="control">
                   <div class="button is-medium is-static">{{ des_type }}</div>
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="columns is-centered mt-0">
-            <div class="column is-7 form-font">
+            <div class="column is-7 normal-font">
               <div v-for="(route,index) in routes" :key="index">
                 <div class="columns has-background-white m-1">
                   <div class="column is-5 has-text-centered">
@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <template v-if="route_display.includes(index)">
-                  <div class="columns has-background-white m-1" v-for="(path,index) in route.fullpath" :key="index">
+                  <div class="columns has-background-white m-1 path-font" v-for="(path,index) in route.fullpath" :key="index">
                     <div class="column is-5 has-text-centered">
                       <span>
                         <p>{{ path.name }}</p>
@@ -99,8 +99,15 @@
   background: #ECF0F3;
 }
 
-.form-font {
+.normal-font {
   font-size: 20px;
+  padding: 1%;
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+}
+
+.path-font {
+  font-size: 19px;
   padding: 1%;
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
