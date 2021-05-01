@@ -27,7 +27,9 @@ router.get("/getdata", async (req, res) => {
     let total_arl = 0
 
     let blue_line = 0
+    let blue_cost = 0
     let purple_line = 0
+    let purple_cost = 0
 
     let srt_cost = 0
     let bst_cost = 0
@@ -86,8 +88,8 @@ router.get("/getdata", async (req, res) => {
         if(table[0][0].station_line == 0){
           blue_line += 1 
        }
-       else{
-         purple_line += 1
+        else{
+          purple_line += 1
        }
       }
 
@@ -120,16 +122,33 @@ router.get("/getdata", async (req, res) => {
     //cost_arl
 
     if(blue_line != 0 || purple_line != 0){
-      mrt_cost = ((3*blue_line)+16)+((3*blue_line)+14)
+      if(blue_line-1 >= 12){ blue_cost += 42}
+      else if(blue_line-1 >= 10){ blue_cost += (((blue_line-1)*2)+18) }
+      else if(blue_line-1 >= 7){ blue_cost += (((blue_line-1)*2)+17)}
+      else if(blue_line-1 >= 4){ blue_cost += (((blue_line-2)*2)+18)}
+      else{ blue_cost += (((blue_line-2)*2)+17)}
+
+      
+      if(purple_line-1 >= 11){ purple_cost += 42}
+      else if(purple_line-1 >= 9){ purple_cost += ((((purple_line-1)*2)+3)+17) }
+      else if(purple_line-1 >= 6){ purple_cost += ((((purple_line-1)*3)-5)+17)}
+      else if(purple_line-1 >= 4){ purple_cost += (((purple_line-1)*2)+17)}
+      else{ purple_cost += (((purple_line-2)*3)+17)}
     }
-    if(mrt_cost >= 42){mrt_cost = 42}
+    if(blue_line != 0 && purple_line != 0){ 
+      mrt_cost = blue_cost + purple_cost -14 
+    }
+    else{
+      if(blue_line != 0){ mrt_cost += blue_cost }
+      else{ mrt_cost += purple_cost }
+    }
     //cost_mrt
 
     total_cost = Math.ceil(srt_cost + bst_cost + arl_cost + mrt_cost)
-    console.log('================================')
-    console.log(i)
-    console.log(srt_cost , bst_cost , arl_cost , mrt_cost)
-    console.log("end")
+    // console.log('================================')
+    // console.log(i)
+    // console.log(srt_cost , bst_cost , arl_cost , mrt_cost)
+    // console.log("end")
     
     const route = {
       fullpath: path,
