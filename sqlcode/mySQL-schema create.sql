@@ -8,7 +8,7 @@
 --   `station_line` int(11) default NULL,
 --   `station_name` varchar(300) NOT NULL,
 --   `transit` boolean NOT NULL DEFAULT 0,
---   `type` enum('ARL', 'SRT', 'BTS', 'MRT') NOT NULL,
+--   `type` enum('ARL', 'SRT', 'BTS', 'MRT', 'MULTI') NOT NULL,
 --   PRIMARY KEY (`station_id`)
 -- );
 
