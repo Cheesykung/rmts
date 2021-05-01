@@ -5,6 +5,9 @@ const bodyParser = require('body-parser')
 // create instance
 const app = express()
 
+// use static for store static file like image file at path 'asset'
+app.use(express.static('asset'))
+
 // config format
 app.use(bodyParser.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
