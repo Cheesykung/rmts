@@ -7,7 +7,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -60,7 +60,7 @@
                     <p>รวม {{ route.total_cost }} บาท</p>
                   </div>
                 </div>
-                <template v-if="route_display.includes(index)">
+                <template v-if="routeDisplayToggle.includes(index)">
                   <div class="columns m-1 path-font" style="background-color: #E5E8FF" v-for="(path,index) in route.fullpath" :key="index">
                     <div class="column is-5 has-text-centered">
                       <span>
@@ -88,7 +88,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/background.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/background.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -138,20 +138,13 @@ export default {
   data() {
     return {
       routes: [],
-      route_display: [],
+      routesCopy: [],
+      routeDisplayToggle: [],
       start: "",
       start_type: "",
       des: "",
       des_type: "",
     };
-  },
-  beforeCreated() {
-    document.title = this.$route.meta.title;
-    this.routes = this.$route.params.routes
-    this.start = this.$route.params.start,
-    this.start_type = this.$route.params.start_type,
-    this.des = this.$route.params.des,
-    this.des_type = this.$route.params.des_type
   },
   created() {
     document.title = this.$route.meta.title;
@@ -163,12 +156,12 @@ export default {
   },
   methods: {
     RouteDisplay(index) {
-      if(this.route_display.includes(index)) {
-        const temp = this.route_display.indexOf(index)
-        this.route_display.splice(temp, 1)
+      if(this.routeDisplayToggle.includes(index)) {
+        const temp = this.routeDisplayToggle.indexOf(index)
+        this.routeDisplayToggle.splice(temp, 1)
       }
       else {
-        this.route_display.push(index)
+        this.routeDisplayToggle.push(index)
       }
     }
   },
@@ -180,22 +173,7 @@ export default {
         });
       }
     })
-  }
-  /*computed: {
-    PathLength() {
-      return this.fullpath.length
-    },
-    Route() {
-      return this.fullpath.slice(1, this.PathLength-1)
-    },
-    TotalTime() {
-      let time = 0
-      this.fullpath.map(item => {
-        time += item.time
-      })
-      return time
-    }
-  }*/
+  },
 }
 </script>
 

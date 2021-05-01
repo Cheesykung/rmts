@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -31,10 +31,10 @@
               <button class="button button-custom is-fullwidth" style="background: #A38607;" @click="route = 4">สายสีทอง</button>
             </div>
           </div>
-          <img v-if="route == 1" src="../assets/BTS_All.svg">
-          <img v-if="route == 2" src="../assets/BTS_Sukhumvit.svg">
-          <img v-if="route == 3" src="../assets/BTS_Silom.svg">
-          <img v-if="route == 4" src="../assets/BTS_Golden.svg">
+          <img v-if="route == 1" src="http://localhost:3000/img/BTS_All.svg">
+          <img v-if="route == 2" src="http://localhost:3000/img/BTS_Sukhumvit.svg">
+          <img v-if="route == 3" src="http://localhost:3000/img/BTS_Silom.svg">
+          <img v-if="route == 4" src="http://localhost:3000/img/BTS_Golden.svg">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
@@ -46,7 +46,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/BTSbackground.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/BTSbackground.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

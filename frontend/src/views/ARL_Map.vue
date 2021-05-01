@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -17,7 +17,7 @@
       </div>
       <div class="has-background-custom pb-5" style="border-radius: 50px 0px 0px 0px;">
         <div class="container p-1 has-text-centered">
-          <img src="../assets/ARL01.svg" style="padding-top: 2.5%">
+          <img src="http://localhost:3000/img/ARL01.svg" style="padding-top: 2.5%">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
@@ -29,7 +29,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/ARLbackground.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/ARLbackground.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

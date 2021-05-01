@@ -7,7 +7,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -108,7 +108,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/background.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/background.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -218,7 +218,6 @@ export default {
       }
     },
   },
-
   validations: {
     start: {
       required
@@ -227,7 +226,6 @@ export default {
       required
     }
   },
-
   computed: {
     startStationList() {
       return this.stations.filter(data => {

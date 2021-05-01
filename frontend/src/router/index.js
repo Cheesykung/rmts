@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: () => import('../views/Home.vue'),
     meta: {title: 'Home - Railway Mass Transit System'}

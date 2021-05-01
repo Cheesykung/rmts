@@ -4,55 +4,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
-    <div class="columns is-gapless">
-      <div class="column is-3 login-page has-background-white" v-if="loginPage == true" name="move">
-        <div id="login" class="container p-5">
-          <div class="has-text-centered">
-            <p class="fontadmin" style="font-weight: 900;font-size: 45px;">ONLY ADMIN</p>
-          </div >
-          <div class="mt-3">
-            <label class="fontunversal" for="email">Email</label>
-            <input type="text" class="input " v-model="email">
-          </div>
-          <div class="mt-3">
-            <label class="fontunversal" for="password">Password</label>
-            <input type="text" class="input" v-model="password">
-          </div>
-          <div class="has-text-centered mt-6">
-            <button id="login-button" class="button is-large is-fullwidth">LOG IN</button>
-          </div>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <div class="hero-head">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+          </a>
         </div>
+      </nav>
+    </div>
+    <div class="hero-body m-0 p-0">
+      <div class="container has-text-centered">
+        <img src="http://localhost:3000/img/RMTSlogo.png" width="600">
       </div>
-      
-      <div class="column main-page" :class="{'is-9':loginPage}">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
-            </a>
-          </div>
-          <div class="navbar-end">
-          <div class="navbar-item">
-            <div>
-              <button class="button" @click="loginPage = !loginPage"><strong>Login</strong></button>
-              </div>
+    </div>
+    <div class="hero-foot has-text-centered">>
+      <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px;">
+        <div class="container pt-3 pb-3">
+          <div class="columns m-0 p-6 has-text-centered">
+            <div class="column is-3 is-offset-3">
+              <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/route_search');">ค้นหาเส้นทาง</div>
             </div>
-          </div>
-        </nav>
-        <div class="has-text-centered">
-          <img src="../assets/RMTSlogo.png" width="632">
-        </div>
-        <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px;">
-          <div class="container pt-3 pb-3">
-            <div class="columns m-0 p-6 has-text-centered">
-              <div class="column is-3 is-offset-3">
-                <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/route_search');">ค้นหาเส้นทาง</div>
-              </div>
-              <div class="column is-3">
-                <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
-      
-              </div>
+            <div class="column is-3">
+              <div class="button button-custom is-large is-fullwidth font-button" @click="$router.push('/map_select');">ดูแผนผังทางเดินรถ</div>
             </div>
           </div>
         </div>
@@ -63,7 +38,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/background.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/background.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -20,13 +20,13 @@
           <div class="columns m-0 is-centered">
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/arl_map');">
-                <span><img src="../assets/train1.svg" width="300" height="28"></span>
+                <span><img src="http://localhost:3000/img/train1.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าเชื่อมท่าอากาศยาน (ARL)</span>
               </div>
             </div>
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/bts_map');">
-                <span><img src="../assets/train2.svg" width="300" height="28"></span>
+                <span><img src="http://localhost:3000/img/train2.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้าบีทีเอส (BTS)</span>
               </div>
             </div>
@@ -34,13 +34,13 @@
           <div class="columns m-0 is-centered">
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/mrt_map');">
-                <span><img src="../assets/train3.svg" width="300" height="28"></span>
+                <span><img src="http://localhost:3000/img/train3.svg" width="300" height="28"></span>
                 <span>รถไฟฟ้ามหานคร (MRT)</span>
               </div>
             </div>
             <div class="column is-3">
               <div class="button button-custom is-medium is-fullwidth is-multiline font-button" @click="$router.push('/srt_map');">
-                <span><img src="../assets/train4.svg" width="300" height="28"></span>
+                <span><img src="http://localhost:3000/img/train4.svg" width="300" height="28"></span>
                 <span>รถไฟไทย (SRT)</span>
               </div>
             </div>
@@ -56,7 +56,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/background.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/background.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

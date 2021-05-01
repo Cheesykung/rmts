@@ -6,7 +6,7 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="./image/RMTS.png" width="112" height="28" @click="$router.push('/home');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/home');">
           </a>
         </div>
       </nav>
@@ -28,9 +28,9 @@
               <button class="button button-custom is-fullwidth" style="background: #5C2C90;" @click="route = 3">สายฉลองรัชธรรม</button>
             </div>
           </div>
-          <img v-if="route == 1" src="../assets/ARL.png">
-          <img v-if="route == 2" src="../assets/background.svg">
-          <img v-if="route == 3" src="../assets/background.svg">
+          <img v-if="route == 1" src="http://localhost:3000/img/ARL.png">
+          <img v-if="route == 2" src="http://localhost:3000/img/background.svg">
+          <img v-if="route == 3" src="http://localhost:3000/img/background.svg">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">
@@ -42,7 +42,7 @@
 
 <style scoped>
 #hero {
-  background: url('../assets/MRTbackground.svg') no-repeat center center fixed;
+  background: url('http://localhost:3000/img/MRTbackground.svg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
