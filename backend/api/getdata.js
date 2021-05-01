@@ -15,70 +15,122 @@ router.get("/getdata", async (req, res) => {
     let count = 0
     let total_time = 0
     let time = 0
-    let checker = null
-    let useMRT = 0
-    let useBTS = 0
-    let useARL = 0
+    
+    let srt_line1 = 0
+    let srt_line2 = 0
+    let srt_line3 = 0
+    let srt_line4_5 = 'false'
+
+    let total_bts = 0
+    let gold_line = 'false'
+
+    let total_arl = 0
+
+    let blue_line = 0
+    let purple_line = 0
+
+    let srt_cost = 0
+    let bst_cost = 0
+    let arl_cost = 0
+    let mrt_cost = 0
+
     let total_cost = 0
+
     while (count < stop) {
       let table = await pool.query("select * from stations where station_id = ?", [data[count]])
-      let tran = ''
+      let tran = 'false'
       const name = table[0][0].station_name
-      const type = table[0][0].type
-      if (table[0][0].transit == 1) {
-        tran = 'true'
-        totaltran += 1
-      }
-      else {
-        tran = 'false'
-      }
+      const s_type = table[0][0].type
+      if(count<stop-1){
+        let next_s = await pool.query("select * from stations where station_id = ?", [data[count+1]])
+        if(next_s[0][0].type != s_type || next_s[0][0].station_line != table[0][0].station_line){
+            tran = 'true'
+            totaltran += 1          
+        }
+      }//check transit
 
       if (table[0][0].type == 'SRT') {
         let query1 = await pool.query("select used_time, station_zone from srt where station_id = ?", [data[count]])
-        let zone = query1[0][0].station_zone
-        if (zone == 21) {
-          total_cost = 10
-        } else {
-          checker = zone
-          total_cost += 2
-        }
         time = query1[0][0].used_time
-      } else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
-        if (table[0][0].type == 'MRT') {
-          useMRT = 1
-        }
-        if (table[0][0].type == 'BTS') {
-          useBTS = 1
-        }
+      } 
+      else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
         time = 2
-      } else if (table[0][0].type == 'ARL') {
-        useARL = 1
+      } 
+      else if (table[0][0].type == 'ARL') {
         time = 5
       }
-
       total_time += time
+      //time
+
+      if(table[0][0].type == 'SRT' && count == 0 && name == 'กรุงเทพ'||name == 'บางซื่อ'){
+        total_cost += 2
+      }
+      else if(table[0][0].type == 'SRT'){
+        if(table[0][0].station_line == 1){ srt_line1 += 1 }
+        else if(table[0][0].station_line == 2){ srt_line2 += 1 }
+        else if(table[0][0].station_line == 3){ srt_line3 += 1 }
+        else if(table[0][0].station_line == 4||table[0][0].station_line == 5){ srt_line4_5 = 'true' }
+      }
+      else if(table[0][0].type == 'ARL'){
+        total_arl += 1
+      }
+      else if(table[0][0].type == 'BTS'){
+        if(table[0][0].station_line == 2){
+           gold_line = 'true'
+        }
+        else{
+          total_bts += 1
+        }
+      }
+      else if(table[0][0].type == 'MRT'){
+        if(table[0][0].station_line == 0){
+          blue_line += 1 
+       }
+       else{
+         purple_line += 1
+       }
+      }
 
       const saved = {
         'name': name,
-        'type': type,
+        'type': s_type,
         'transit': tran,
-        'time': time,
-        'cost': total_cost
+        'time': time
       }
       path.push(saved)
       count++
     }//while
-    if (useMRT == 1) {
-      total_cost += 30
-    }
-    if (useBTS == 1) {
-      total_cost += 35
-    }
 
-    if (useARL == 1) {
-      total_cost += 40
-    }
+    if(srt_line1 != 0 || srt_line2 != 0 || srt_line3 != 0){
+      srt_cost = ((14*srt_line1)/13) + ((8*srt_line2)/14) + ((6*srt_line3)/14)
+    }  
+    if(srt_line4_5 == 'true') {srt_cost += 10}
+    //cost_srt
 
+    if(total_bts != 0){
+      bst_cost = (((total_bts/2)-1)*3) + ((total_bts/2)*4)
+    }
+    if(gold_line == 'true'){bst_cost += 15}
+    if(bst_cost >= 44){bst_cost = 44}
+    //cost_bts
+
+    if(total_arl != 0){
+      arl_cost = 5 * (total_arl+1)
+    }
+    //cost_arl
+
+    if(blue_line != 0 || purple_line != 0){
+      mrt_cost = ((3*blue_line)+16)+((3*blue_line)+14)
+    }
+    if(mrt_cost >= 42){mrt_cost = 42}
+    //cost_mrt
+
+    total_cost = Math.ceil(srt_cost + bst_cost + arl_cost + mrt_cost)
+    console.log('================================')
+    console.log(i)
+    console.log(srt_cost , bst_cost , arl_cost , mrt_cost)
+    console.log("end")
+    
     const route = {
       fullpath: path,
       total_cost: total_cost,
@@ -118,6 +170,7 @@ router.get("/stations", (req, res) => {
       });
     })
     .catch((err) => {
+      console.log(show);
       console.log(err);
     });
 });
