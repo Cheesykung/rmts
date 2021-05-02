@@ -6,8 +6,8 @@
     <div class="hero-head">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/');">
+          <a class="navbar-item" @click="$router.push('/');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28">
           </a>
         </div>
       </nav>
@@ -45,7 +45,7 @@
           <div class="columns is-centered mt-0">
             <div class="column is-7 normal-font">
               <div v-for="(route,index) in routes" :key="index">
-                <div class="columns has-background-white m-1">
+                <div class="columns has-background-white m-1" style="border: 2px solid #DCDCDC;">
                   <div class="column is-5 has-text-centered">
                     <span>
                       <p>เส้นทางที่ {{ index + 1 }}</p>
@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <template v-if="routeDisplayToggle.includes(index)">
-                  <div class="columns m-1 path-font" style="background-color: #E5E8FF" v-for="(path,index) in route.fullpath" :key="index">
+                  <div class="columns m-1 pathDisplay" v-for="(path,index) in route.fullpath" :key="index">
                     <div class="column is-5 has-text-centered">
                       <span>
                         <p>{{ path.name }}</p>
@@ -106,11 +106,13 @@
   font-weight: bold;
 }
 
-.path-font {
+.pathDisplay {
   font-size: 19px;
-  padding: 1%;
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
+  background-color: #E5E8FF;
+  border: 2px solid #e0cdff;
+  border-radius: 3px 3px 3px 3px;
 }
 
 #transit-font {
