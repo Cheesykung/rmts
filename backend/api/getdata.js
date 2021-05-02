@@ -49,9 +49,13 @@ router.get("/getdata", async (req, res) => {
       const s_type = table[0][0].type
       if(count<stop-1){
         let next_s = await pool.query("select * from stations where station_id = ?", [data[count+1]])
-        if(next_s[0][0].type != s_type || next_s[0][0].station_line != table[0][0].station_line){
+        if(next_s[0][0].type != s_type ){
             tran = 'true'
             totaltran += 1          
+        }
+        else if(next_s[0][0].station_line != table[0][0].station_line && next_s[0][0].type != 'SRT' && s_type != 'SRT'){
+            tran = 'true'
+            totaltran += 1
         }
       }//check transit
 
