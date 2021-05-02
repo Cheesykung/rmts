@@ -21,8 +21,12 @@ router.get("/getdata", async (req, res) => {
     let srt_line3 = 0
     let srt_line4_5 = 'false'
 
-    let total_bts = 0
+    let bts_line1 = 0
+    let bts_line2 = 0
+    let bts_line3 = 0
+    let bts_line4 = 0
     let gold_line = 'false'
+    let tran_bts = 0
 
     let total_arl = 0
 
@@ -32,7 +36,7 @@ router.get("/getdata", async (req, res) => {
     let purple_cost = 0
 
     let srt_cost = 0
-    let bst_cost = 0
+    let bts_cost = 0
     let arl_cost = 0
     let mrt_cost = 0
 
@@ -51,40 +55,53 @@ router.get("/getdata", async (req, res) => {
         }
       }//check transit
 
-      if (table[0][0].type == 'SRT') {
+      if (s_type == 'SRT') {
         let query1 = await pool.query("select used_time, station_zone from srt where station_id = ?", [data[count]])
         time = query1[0][0].used_time
       } 
-      else if (table[0][0].type == 'MRT' || table[0][0].type == 'BTS') {
+      else if (s_type == 'MRT' || s_type == 'BTS') {
         time = 2
       } 
-      else if (table[0][0].type == 'ARL') {
+      else if (s_type == 'ARL') {
         time = 5
       }
       total_time += time
       //time
 
-      if(table[0][0].type == 'SRT' && count == 0 && name == 'กรุงเทพ'||name == 'บางซื่อ'){
+      if(s_type == 'SRT' && count == 0 && name == 'กรุงเทพ'||name == 'บางซื่อ'){
         total_cost += 2
       }
-      else if(table[0][0].type == 'SRT'){
+      if(s_type == 'SRT'){
         if(table[0][0].station_line == 1){ srt_line1 += 1 }
         else if(table[0][0].station_line == 2){ srt_line2 += 1 }
         else if(table[0][0].station_line == 3){ srt_line3 += 1 }
         else if(table[0][0].station_line == 4||table[0][0].station_line == 5){ srt_line4_5 = 'true' }
       }
-      else if(table[0][0].type == 'ARL'){
+      else if(s_type == 'ARL'){
         total_arl += 1
       }
-      else if(table[0][0].type == 'BTS'){
+      else if(s_type == 'BTS'){
         if(table[0][0].station_line == 2){
            gold_line = 'true'
         }
         else{
-          total_bts += 1
+          if(table[0][0].station_id <=153 && table[0][0].station_id >=145 
+          || table[0][0].station_id <=178 && table[0][0].station_id >=170
+          || table[0][0].station_id <=202 && table[0][0].station_id >=193){
+            bts_line1 += 1
+          }
+          else if(table[0][0].station_id <=168 && table[0][0].station_id >=154){
+            bts_line2 += 1
+          }
+          else if(table[0][0].station_id <=192 && table[0][0].station_id >=179){
+            bts_line3 += 1
+          }
+          else if(table[0][0].station_id <=206 && table[0][0].station_id >=203){
+            bts_line4 += 1
+          }
         }
       }
-      else if(table[0][0].type == 'MRT'){
+      else if(s_type == 'MRT'){
         if(table[0][0].station_line == 0){
           blue_line += 1 
        }
@@ -109,11 +126,33 @@ router.get("/getdata", async (req, res) => {
     if(srt_line4_5 == 'true') {srt_cost += 10}
     //cost_srt
 
-    if(total_bts != 0){
-      bst_cost = (((total_bts/2)-1)*3) + ((total_bts/2)*4)
+    if(bts_line1 != 0|| bts_line2 != 0|| bts_line3 != 0|| bts_line4 != 0){
+      if (bts_line1 != 0){
+        if(bts_line1-1 >= 8){ bts_cost += 44}
+        else if(bts_line1-1 >= 6){ bts_cost += (((bts_line1-1)*3)+3)+16}
+        else if(bts_line1-1 >= 4){ bts_cost += (((bts_line1-1)*3)+2)+16}
+        else if(bts_line1-1 >= 2){ bts_cost += (((bts_line1-1)*3)+1)+16}
+        else{ bts_cost += 16}
+        tran_bts += 1
+      }
+      if (bts_line2 != 0){
+        if(((bts_line2-1)*3)+15 >= 45){ bts_cost += 45}
+        else{ bts_cost += ((bts_line2-1)*3)+15 }
+        tran_bts += 1
+      }
+      if (bts_line3 != 0){
+        if(((bts_line3-1)*3)+15 >= 45){ bts_cost += 45}
+        else{ bts_cost += ((bts_line3-1)*3)+15 }
+        tran_bts += 1
+      }
+      if (bts_line4 != 0){
+        if(((bts_line4-1)*3)+15 >= 24){ bts_cost += 24}
+        else{ bts_cost += ((bts_line4-1)*3)+15 }
+        tran_bts += 1
+      }
+      bts_cost -= (tran_bts-1)*15
     }
-    if(gold_line == 'true'){bst_cost += 15}
-    if(bst_cost >= 44){bst_cost = 44}
+    if(gold_line == 'true'){bts_cost += 15}
     //cost_bts
 
     if(total_arl != 0){
@@ -128,7 +167,6 @@ router.get("/getdata", async (req, res) => {
       else if(blue_line-1 >= 4){ blue_cost += (((blue_line-2)*2)+18)}
       else{ blue_cost += (((blue_line-2)*2)+17)}
 
-      
       if(purple_line-1 >= 11){ purple_cost += 42}
       else if(purple_line-1 >= 9){ purple_cost += ((((purple_line-1)*2)+3)+17) }
       else if(purple_line-1 >= 6){ purple_cost += ((((purple_line-1)*3)-5)+17)}
@@ -144,11 +182,7 @@ router.get("/getdata", async (req, res) => {
     }
     //cost_mrt
 
-    total_cost = Math.ceil(srt_cost + bst_cost + arl_cost + mrt_cost)
-    // console.log('================================')
-    // console.log(i)
-    // console.log(srt_cost , bst_cost , arl_cost , mrt_cost)
-    // console.log("end")
+    total_cost = Math.ceil(srt_cost + bts_cost + arl_cost + mrt_cost)
     
     const route = {
       fullpath: path,
@@ -189,6 +223,7 @@ router.get("/stations", (req, res) => {
       });
     })
     .catch((err) => {
+      console.log(show);
       console.log(err);
     });
 });
