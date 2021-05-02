@@ -2,8 +2,23 @@ const pathFinder = require("../components/searchEngine");
 const express = require("express");
 const axios = require("axios");
 const pool = require("../config");
+const Joi = require('joi');
 
 router = express.Router();
+
+const typeValidator = (value, helpers) => {
+  if (value != 'SRT' || value != 'BTS' || value != 'ARL' || value != 'MRT') {
+    throw new Joi.ValidationError('Unknown type of stations')
+  }
+  return value
+}
+
+const schema = Joi.object({
+  begin : Joi.string().required(),
+  start_type : Joi.string().required().custom(typeValidator),
+  finish : Joi.string().required(),
+  des_type : Joi.string().required().custom(typeValidator)
+})
 
 router.get("/search", async (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,6 +31,8 @@ router.get("/search", async (req, res, next) => {
     "X-Requested-With,content-type"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
+
+  await schema.validateAsync(req.query,  { abortEarly: false })
 
   const begin = req.query.start;
   const start_type = req.query.start_type;
