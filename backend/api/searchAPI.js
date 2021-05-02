@@ -45,6 +45,10 @@ router.get("/search", async (req, res, next) => {
   const finish = req.query.des;
   const des_type = req.query.des_type;
 
+  if (begin == finish && start_type == des_type) {
+    res.status(200).send()
+  }
+
   const promise = pool.query(
     " SELECT station_id FROM stations WHERE station_name = ? and type = ? ",
     [begin, start_type]
