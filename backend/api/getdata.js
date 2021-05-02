@@ -157,6 +157,7 @@ router.get("/getdata", async (req, res) => {
       bts_cost -= (tran_bts-1)*15
     }
     if(gold_line == 'true'){bts_cost += 15}
+    if(bts_cost > 59){bts_cost = 59}
     //cost_bts
 
     if(total_arl != 0){
