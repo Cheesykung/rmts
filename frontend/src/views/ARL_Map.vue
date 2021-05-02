@@ -5,8 +5,8 @@
     <div class="hero-head">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/');">
+          <a class="navbar-item" @click="$router.push('/');">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28">
           </a>
         </div>
       </nav>

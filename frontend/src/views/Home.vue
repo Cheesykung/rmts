@@ -8,8 +8,8 @@
     <div class="hero-head">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28" @click="$router.push('/');">
+          <a class="navbar-item" @click="$router.push('/')">
+            <img src="http://localhost:3000/img/RMTS.png" width="112" height="28">
           </a>
         </div>
       </nav>
@@ -19,7 +19,7 @@
         <img src="http://localhost:3000/img/RMTSlogo.png" width="600">
       </div>
     </div>
-    <div class="hero-foot has-text-centered">>
+    <div class="hero-foot has-text-centered">
       <div class="has-background-custom" style="border-radius: 50px 0px 0px 0px;">
         <div class="container pt-3 pb-3">
           <div class="columns m-0 p-6 has-text-centered">
