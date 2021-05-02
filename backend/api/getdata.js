@@ -210,6 +210,7 @@ router.get("/getdata", async (req, res) => {
     if (gold_line == "true") {
       bts_cost += 15;
     }
+    if(bts_cost > 59){bts_cost = 59}
     //cost_bts
 
     if (total_arl != 0) {
@@ -293,7 +294,6 @@ router.get("/stations", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(show);
       console.log(err);
     });
 });
