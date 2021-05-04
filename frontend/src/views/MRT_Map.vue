@@ -29,8 +29,8 @@
             </div>
           </div>
           <img v-if="route == 1" src="http://localhost:3000/img/ARL.png">
-          <img v-if="route == 2" src="http://localhost:3000/img/background.svg">
-          <img v-if="route == 3" src="http://localhost:3000/img/background.svg">
+          <img v-if="route == 2" src="http://localhost:3000/img/MRT_Blue.svg">
+          <img v-if="route == 3" src="http://localhost:3000/img/MRT_Purple.svg">
         </div>
       </div>
       <div class="has-background-dark has-text-centered p-3">

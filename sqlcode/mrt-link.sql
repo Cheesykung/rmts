@@ -19,7 +19,7 @@ VALUES
 (null, null, 130, 129, 100, null, null), -- MRT 1 เตาปูน -> เตาปูน MRT 0
 
 -- MRT รัชดาพิเษก 106 -> ท่าพระ 91
-(null, null, null, 106, 107, null, null),
+(null, null, 105, 106, 107, null, null),
 (null, null, 106, 107, 108, null, null),
 (null, null, 107, 108, 109, null, null),
 (null, null, 108, 109, 110, null, null),
@@ -52,7 +52,7 @@ VALUES
 (null, null, 101, 102, 103, null, null),
 (null, 102, 153, 103, 104, null, null), -- ทางแยก หมอชิต BTS สายเขียวอ่อน -> สวนจตุจักร MRT 0 สายน้ำเงิน
 (null, 103, 154, 104, 105, null, null), -- ทางแยก ห้าแยกลาดพร้าว BTS สายเขียวอ่อน -> พหลโยธิน MRT 0 สายน้ำเงิน
-(null, null, 104, 105, null, null, null),
+(null, null, 104, 105, 106, null, null),
 
 -- ท่าพระ แยกไป MRT หลักสอง 128
 (null, null, 91, 123, 124, null, null),
